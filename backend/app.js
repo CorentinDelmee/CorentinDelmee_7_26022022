@@ -4,31 +4,25 @@ const express = require('express');
 
 // Appel de l'objet connection
 
-const connection = require("./env")
+const connexion = require("./env")
 
 // Connection à mySQL
 
-connection.connect((err) => {
+connexion.connect((err) => {
   if (err) {
     console.log("Connexion à la base de donnée échouée");
     return
   }
   console.log("Connexion à la base de donnée réussie")
-})
- 
-/*connection.query('SHOW TABLES FROM groupomania;', function (error, results, fields) {
-  if (error) throw error;
-  console.log(results);
-});*/
+}) 
 
 // Appel du router user
 
 const userRoutes = require('./routes/user');
 
-// Appel du router stuff
+// Appel du router publication
 
-const stuffRoutes = require("./routes/stuff");
-const { connect } = require('./routes/user');
+const publicationRoutes = require("./routes/publication");
 
 // Initialisation de l'app
 
@@ -45,14 +39,13 @@ app.use((req, res, next) => {
   });
 
 
-// Utilisation de app.use des routes user
+//Utilisation de app.use des routes user
 
 app.use('/api/auth', userRoutes);
 
 // Utilisation app.use des routes stuff
 
-app.use("/api/sauces", stuffRoutes);
-
+app.use("/api/publications", publicationRoutes);
 
 // Export de l'app pour server.js
 

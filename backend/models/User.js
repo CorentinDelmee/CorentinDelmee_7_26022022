@@ -31,4 +31,4 @@ class user {
 
 // Export de la classe User
 
-module.exports = {user};
+module.exports = user;

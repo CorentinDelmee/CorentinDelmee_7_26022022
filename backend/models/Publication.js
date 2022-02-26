@@ -1,7 +1,3 @@
-// Appel de Validator
-
-const validator = require("validator");
-
 
 // Création d'une classe poste
 
@@ -23,4 +19,4 @@ class publication {
 
 // Export de la classe publication pour app.js
 
-module.exports = {publication}
+module.exports = publication
