@@ -5,6 +5,8 @@ Routes :
 api/publications/
 
 La requête POST de création de message attend un objet du frontend :
+
+```
   post = {
     user_id : {
         type: Number,
@@ -16,3 +18,4 @@ La requête POST de création de message attend un objet du frontend :
         maxLenght: 500,
     }
   }
+```
