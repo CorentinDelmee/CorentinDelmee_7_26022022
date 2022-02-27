@@ -82,9 +82,9 @@ La requête Login POST attend un objet user_login :
 ```
   user_login = {
       email = {
-      type: String,
-      required: true,
-      maxLenght: 255
+        type: String,
+        required: true,
+        maxLenght: 255
       }
       password = {
           type: String,
