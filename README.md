@@ -24,7 +24,7 @@ La requête GET récupère toutes les publications de la base de donnée
 La requête PUT attend un objet post_modification :
 
 ```
-  post_modification = {
+  post_modify = {
     post_id : {
       type: Number,
       required: true,
