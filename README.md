@@ -1,8 +1,8 @@
 # API de publication
 
-Routes : 
+## Routes : 
 
-api/publications/
+### api/publications/
 
 La requête POST de création de message attend un objet du frontend :
 
@@ -19,3 +19,21 @@ La requête POST de création de message attend un objet du frontend :
     }
   }
 ```
+La requête GET récupère toutes les publications de la base de donnée
+
+La requête PUT attend un objet post_modification :
+
+```
+  post_modification = {
+    post_id : {
+      type: Number,
+      required: true,
+    }
+    content: {
+      type: String,
+      required: true,
+      maxLenght: 500
+    }
+   }
+```
+      
