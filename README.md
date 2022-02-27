@@ -47,4 +47,51 @@ La requête DELETE attend un objet post_delete :
     }
   }
 ```
-      
+### api/auth/
+
+La requête Signup POST attend un objet user :
+
+```
+  user = {
+  
+    nom = {
+          type: String,
+          required: true,
+          maxLenght: 100
+      }
+      prénom = {
+          type: String,
+          required: true,
+          maxLenght: 100
+      }
+      email = {
+          type: String,
+          required: true,
+          maxLenght: 255
+      }
+      passwordhash = {
+          type: String,
+          required: true,
+          maxLenght: 500
+      }
+  }
+```
+
+La requête Login POST attend un objet user_login :
+
+```
+  user_login = {
+          email = {
+          type: String,
+          required: true,
+          maxLenght: 255
+      }
+      password = {
+          type: String,
+          required: true,
+          maxLenght: 500
+      }
+  }
+```
+
+
