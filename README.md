@@ -36,4 +36,15 @@ La requête PUT attend un objet post_modification :
     }
    }
 ```
+
+La requête DELETE attend un objet post_delete :
+
+```
+  post_delete = {
+    post_id : {
+      type: Number,
+      required: true
+    }
+  }
+```
       
