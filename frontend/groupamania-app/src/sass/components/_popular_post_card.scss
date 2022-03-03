@@ -1,0 +1,56 @@
+.card_liked_post{
+    width: 90%;
+    height: 150px;
+    background-color: white;
+
+    //margin: auto;
+    margin-bottom: 25px;
+
+    padding: 5%;
+    border-radius: 25px;
+
+    box-shadow: 0 0 11px rgba(33,33,33,0.7); 
+
+    position: relative;
+
+    .info_liked_post{
+        display: flex;
+        align-items: center;
+        height: 20%;
+        
+        img{
+            width: 20px;
+            height: 20px;
+        }
+        h3{
+            overflow: hidden;
+            height: 25px;
+
+            font-size: 17px;
+            font-weight: 700;
+
+            margin: 0;
+        }
+    }
+    .contenu_liked_post{
+        height: 70px;
+        margin-top: 20px;
+        p{
+            margin: 0;
+            overflow: hidden;
+
+            color: grey;
+            font-size: 15px;
+        }
+    }
+    .coeur_liked_post{
+        display: flex;
+        width: 60px;
+        height: 30px;
+        align-items: center;
+
+        p{
+            margin: 0 0 0 5px;
+        }
+    }
+}

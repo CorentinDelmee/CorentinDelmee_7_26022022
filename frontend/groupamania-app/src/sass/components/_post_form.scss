@@ -1,0 +1,62 @@
+.post_message_div{
+    margin-bottom: 40px;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 10px 11px rgba(33,33,33,0.3); 
+
+    padding-bottom: 5px;
+
+
+    .post_message_container{
+            width: 60%;
+            margin: auto;
+            margin-bottom: 30px;
+
+        .post_message_formulaire{
+            display: flex;
+            background-color: white;
+            padding: 20px;
+
+            box-shadow: 0 0 11px rgba(33,33,33,0.3); 
+            border-radius: 25px;
+
+            i{
+                margin: 10px 20px 0 0;
+                font-size: 25px;
+                color: $color_tertiary ;
+            }
+            p{
+                width: 90%;
+                min-height: 100px;
+                margin: 0;
+    
+                .textarea{
+                    display: block;
+                    width: 90%;
+                    min-height: 100px;
+                    border: 1px solid $color_tertiary;
+    
+                    padding: 5px;
+                }
+            }
+        }
+
+        .button_post_message_container{
+            display: flex;
+            flex-direction: row-reverse;
+            width: 85%;
+
+            margin: auto;
+            margin-top: 15px;
+            button{
+                background-color: $color_tertiary;
+                border: none;
+                border-radius: 25px;
+    
+                color: white;
+                font-size: 13px;
+                padding: 10px 25px 10px 25px;
+    
+            }
+        }
+    }
+}
