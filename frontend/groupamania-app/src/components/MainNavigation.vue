@@ -1,7 +1,7 @@
 <template>
   <nav>
                     <div class="logo_div">
-                        <img src="F:\OpenClassrooms\Projet 7\Codebase\CorentinDelmee---CorentinDelmee_7_26022022\frontend\groupamania-app\src\assets\icon-left-font-monochrome-black.png" alt="" class="logo">
+                        <img src="../assets/icon-left-font-monochrome-black.png" alt="" class="logo">
                     </div>
                     <div class="main_nav_container">
                         <div class="home_container">

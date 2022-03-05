@@ -20,13 +20,17 @@ exports.createPublication = (req, res, next) => {
 
 // Récupérer toutes les publications
 
-exports.getAllPublication = (req,res, next) => {
-  let sql = "SELECT * FROM postes";
+exports.getAllPublication = (req,response, next) => {
+  let result;
+  let sql = "SELECT * FROM postes ORDER BY id DESC";
   let query = connexion.query(sql, (err, res) => {
-    if(err) throw err;
-    console.log(res);
-    console.log("Récupération de toutes les publications");
-  })
+    if(err) {console.log(err)};
+    console.log("Récupération de toutes les publications")
+    result = (JSON.parse(JSON.stringify(res)))
+    console.log(result)
+    response.json(result);
+  });
+
 };
 
 // Modification d'une publication

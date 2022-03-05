@@ -1,5 +1,5 @@
 
-// Création d'une classe poste
+// Création d'une classe post
 
 class publication {
     user_id = {

@@ -1,0 +1,16 @@
+.comment_card{
+    min-height: 100%;
+    width: 85%;
+    background-color: white;
+    box-shadow: 0 0 11px rgba(33,33,33,0.3); 
+
+    padding: 5px 15px 5px 15px;
+
+    margin-left: auto;    
+    margin-top: 20px;
+    .content_div{
+        h4{
+            margin: 15px 0 0 0;
+        }
+    }
+}
