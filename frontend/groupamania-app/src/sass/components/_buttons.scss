@@ -1,0 +1,15 @@
+.button_settings{
+    height: 70px;
+    width: 30%;
+
+    border: none;
+    border-radius: 50px;
+
+    font-size: 20px;
+    font-weight: 300;
+
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+

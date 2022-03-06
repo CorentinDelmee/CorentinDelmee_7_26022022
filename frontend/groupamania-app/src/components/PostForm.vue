@@ -6,8 +6,7 @@
                                 
                 <p class="post_content">
                     Quoi de neuf ?
-                    <textarea name="post_content" id="post_content" class="textarea" role="textbox" contenteditable>
-                    </textarea>
+                    <textarea name="post_content" id="post_content" class="textarea" role="textbox" contenteditable></textarea>
                 </p>
 
             </form>
@@ -45,6 +44,7 @@ export default {
         }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

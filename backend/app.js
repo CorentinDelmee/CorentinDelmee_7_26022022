@@ -24,6 +24,11 @@ const userRoutes = require('./routes/user');
 
 const publicationRoutes = require("./routes/publication");
 
+// Appel du router publication
+
+const commentRoutes = require("./routes/comment");
+const comment = require('./models/Comment');
+
 // Initialisation de l'app
 
 const app = express();
@@ -43,9 +48,13 @@ app.use(express.json());
 
 app.use('/api/auth', userRoutes);
 
-// Utilisation app.use des routes stuff
+// Utilisation app.use des routes publication
 
 app.use("/api/publications", publicationRoutes);
+
+// Utilisation app.use des routes comment
+
+app.use("/api/comments", commentRoutes);
 
 // Export de l'app pour server.js
 

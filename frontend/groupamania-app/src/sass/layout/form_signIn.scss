@@ -1,0 +1,47 @@
+.form_Container{
+    height: 35%;
+    margin-top: 80px;
+
+    form{
+        height: 100%;
+        width: 50%;
+        margin: auto;
+    }
+    .identity_Container{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: auto;
+
+        
+        margin-top: 25px;
+        .identity_form_settings{
+            width: 45%;
+            height: 60px;
+        
+        }
+    }
+
+    .form_settings{
+        height: 60px;
+
+        margin-top: 25px;
+    }
+    
+    .input_settings{
+        width: 100%;
+        height: 100%;
+
+        font-size: 20px;
+        padding-left: 20px;
+
+        background-color: #ededed;
+        border: none;
+
+        &::placeholder{
+            font-family:'Poppins', sans-serif, FontAwesome;
+        }
+    }
+}
+
+

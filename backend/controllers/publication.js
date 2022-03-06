@@ -36,7 +36,7 @@ exports.getAllPublication = (req,response, next) => {
 // Modification d'une publication
 
 exports.modifyPublication = (req,res, next) => {
-  let sql = `UPTDATE postes SET content = "${req.body.post_modify.content}" WHERE id = ${req.params.id /*req.body.post_modify.post_id*/}`;
+  let sql = `UPDATE postes SET content = '${req.body.post_modify.content}' WHERE id = ${req.params.id}`;
   let query = connexion.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res);

@@ -1,0 +1,97 @@
+.main_Container{
+    display: flex;
+    height: 100%;
+
+    .logo{
+        width: 150px;
+        position: absolute;
+        top: -40px;
+        left: 20px;
+        .icon_logo{
+            width: 100%;
+        }
+    }
+
+    .side_Text{
+        height: 100%;
+        width: 40%;
+        background-color: $color_tertiary;
+
+        .h2_Container{
+            text-align: center;
+            margin-top: 350px;
+            h2{
+            margin: 0;
+
+            font-size: 60px;
+            color: white;
+            }
+            .Welcome{
+                font-size: 30px;
+            }
+            .Groupomania{
+                color: $color_secondary;
+            }
+        }
+
+        .button_Container{
+            text-align: center;
+            margin-top: 40px;
+            .login_button{
+                color: white;
+
+                background-color: $color_tertiary;
+                border: 1px solid white;
+
+                &:active{
+                    background-color: $color_tertiary_darken;
+                }
+            }
+        }
+
+        .paraf_Container{
+            width: 50%;
+            margin: auto;
+            .login_paraf{
+                text-align: center;
+
+                font-size: 15px;
+                font-weight: 200;
+                color: white;
+            }
+        }
+    }
+    .main_Text{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
+        width: 60%;
+        background-color: white;
+
+        .section_Container{
+            text-align: center;
+            height:  70%;
+            width: 100%;
+            h1{
+                margin: 0;
+
+                font-size: 60px;
+                color: $color_tertiary;
+            }
+        }
+
+        .button_Container{
+            margin-top: 80px;
+            .signIn_button{
+                background-color: $color_tertiary;
+                color: white;
+
+                &:active{
+                    background-color: black;
+                }
+            }
+        }
+    }
+}
