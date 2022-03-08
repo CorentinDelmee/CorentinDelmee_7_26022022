@@ -44,9 +44,12 @@ export default {
             body: JSON.stringify({user_login})
             })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then((data) => { 
+              localStorage.setItem("UserLogin", JSON.stringify(data)); 
+              console.log(JSON.parse(localStorage.getItem("UserLogin")));
+              })
             .then(() => {console.log("Connexion")})
-            //.then(window.location.href = "http://localhost:8080/#/home")
+            .then(window.location.href = "http://localhost:8080/#/home")
             .catch(err => console.log(err));
 
     }

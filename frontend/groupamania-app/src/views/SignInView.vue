@@ -29,8 +29,11 @@
 
 <script>
 
-import SignInForm from '../components/SignInForm.vue'
+if(localStorage.getItem("UserLogin")){
+    window.location.href = "http://localhost:8080/#/home";
+}
 
+import SignInForm from '../components/SignInForm.vue'
 
 export default {
   name: 'SignIn',
@@ -40,6 +43,7 @@ export default {
   methods: {
       GoLoginView(){
           window.location.href = "http://localhost:8080/#/login"
+          window.location.reload()
       }
   },
 

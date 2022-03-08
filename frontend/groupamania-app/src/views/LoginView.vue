@@ -30,6 +30,10 @@
 
 <script>
 
+if(localStorage.getItem("UserLogin")){
+    window.location.href = "http://localhost:8080/#/home";
+}
+
 import LoginForm from '../components/LoginForm.vue'
 
 export default {
@@ -39,7 +43,8 @@ export default {
   },
   methods: {
       GoSignInView(){
-          window.location.href = "http://localhost:8080/#/"
+        window.location.href = "http://localhost:8080/#/"
+        window.location.reload()
       }
   },
 
