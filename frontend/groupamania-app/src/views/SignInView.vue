@@ -13,16 +13,14 @@
                     <img src="../assets/icon-left-font-monochrome-white.png" alt="" class="icon_logo">
                 </div>
                 <div class="button_Container">
-                    <button class="button_settings login_button">Se connecter</button>
+                    <button @click="GoLoginView" class="button_settings login_button">Se connecter</button>
+                    <!--<router-link to = "/login" replace class="button_settings login_button"> Se connecter </router-link>-->
                 </div>
             </div>
             <div class="main_Text">
                 <div class="section_Container">
                     <h1>Créer votre compte</h1>
                     <SignInForm/>
-                    <div class="button_Container">
-                        <button class="button_settings signIn_button">S'inscrire</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -35,9 +33,14 @@ import SignInForm from '../components/SignInForm.vue'
 
 
 export default {
-  name: 'AuthView',
+  name: 'SignIn',
   components: {
     SignInForm,
+  },
+  methods: {
+      GoLoginView(){
+          window.location.href = "http://localhost:8080/#/login"
+      }
   },
 
   mounted() {
@@ -52,6 +55,6 @@ export default {
 
 <style scoped lang="scss">
 @import "../sass/utils/variables";
-@import "../sass/pages/login";
 @import "../sass/components/buttons";
+@import "../sass/pages/signin";
 </style>

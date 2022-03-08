@@ -14,29 +14,38 @@
 
     .side_Text{
         height: 100%;
-        width: 40%;
-        background-color: $color_tertiary;
+        width: 60%;
+        background-color: $special_color;
 
-        .h2_Container{
+        .h1_Container{
             text-align: center;
-            margin-top: 350px;
-            h2{
+            margin-top: 200px;
+            h1{
             margin: 0;
 
             font-size: 60px;
-            color: white;
+            color: $color_tertiary;
             }
-            .Welcome{
-                font-size: 30px;
-            }
-            .Groupomania{
-                color: $color_secondary;
+        }
+
+        .form_Container{
+            height: 15%;
+            margin-top: 80px;
+            input{
+                background-color: $color_tertiary;
+                color: white;
+                
+                font-weight: 200;
+
+                &::placeholder{
+                    color: white;
+                }
             }
         }
 
         .button_Container{
             text-align: center;
-            margin-top: 40px;
+            margin-top: 80px;
             .login_button{
                 color: white;
 
@@ -56,42 +65,52 @@
                 text-align: center;
 
                 font-size: 15px;
-                font-weight: 200;
-                color: white;
-            }
-        }
-    }
-    .main_Text{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        height: 100%;
-        width: 60%;
-        background-color: white;
-
-        .section_Container{
-            text-align: center;
-            height:  70%;
-            width: 100%;
-            h1{
-                margin: 0;
-
-                font-size: 60px;
+                font-weight: 400;
                 color: $color_tertiary;
             }
         }
+    }
 
-        .button_Container{
-            margin-top: 80px;
-            .signIn_button{
-                background-color: $color_tertiary;
-                color: white;
 
-                &:active{
-                    background-color: black;
+    .main_Text{
+        display: flex;
+        justify-content: center;
+
+        height: 100%;
+        width: 40%;
+        background-color: $color_tertiary;
+
+        .section_Container{
+            text-align: center;
+            margin-top: 350px;
+
+            h2{
+            margin: 0;
+
+            font-size: 60px;
+            color: white;
+            }
+            .Welcome{
+                font-size: 30px;
+
+                .Groupomania{
+                    color: $color_secondary;
+                }
+            }
+
+            .button_Container{
+                margin-top: 50px;
+                .signIn_button{
+                    background-color: white;
+                    color: $color_tertiary;
+                    width: 60%;
+                    font-weight: 500;
+                    &:active{
+                        background-color: black;
+                    }
                 }
             }
         }
+
     }
 }

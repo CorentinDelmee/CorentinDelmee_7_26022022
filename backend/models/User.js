@@ -6,7 +6,7 @@ class user {
         required: true,
         maxLenght: 100
     }
-    prénom = {
+    prenom = {
         type: String,
         required: true,
         maxLenght: 100
@@ -21,9 +21,9 @@ class user {
         required: true,
         maxLenght: 500
     }
-    constructor(nom, prénom, email, passwordhash){
+    constructor(nom, prenom, email, passwordhash){
         this.nom = nom;
-        this.prénom = prénom;
+        this.prenom = prenom;
         this.email = email;
         this.passwordhash = passwordhash;
     }

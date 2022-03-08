@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="form_Container">
       <form action="">
         <div class="identity_Container">
@@ -6,7 +7,7 @@
               <input type="text" name="nom" id="nom" class="input_settings" placeholder="&#xf406;  Nom">
           </div>
           <div class="identity_form_settings">
-              <input type="prénom" name="prénom" id="prénom" class="input_settings" placeholder="&#xf406;  Prénom">
+              <input type="prenom" name="prenom" id="prenom" class="input_settings" placeholder="&#xf406;  Prénom">
           </div>
         </div>
         <div class="form_settings">
@@ -17,13 +18,39 @@
         </div>
       </form>
     </div>
+    <div class="button_Container">
+        <button @click="SendSignInForm" class="button_settings signIn_button">S'inscrire</button>
+    </div>
+</div>
 </template>
 
 <script>
 
 export default {
-  name: 'SignIn',
+  name: 'SignInForm',
+  methods: {
+    SendSignInForm(){
+      let user = {
+        nom: document.getElementById("nom").value,
+        prenom: document.getElementById("prenom").value,
+        email: document.getElementById("email").value,
+        passwordhash: document.getElementById("password").value,
+      }
 
+      fetch("http://localhost:3000/api/auth/signup", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({user})
+            })
+            .then(res => res.json())
+            .then(window.location.href = "http://localhost:8080/#/login")
+            .catch(err => console.log(err));
+
+    }
+  }
 }
 
 </script>
@@ -32,4 +59,6 @@ export default {
 <style scoped lang="scss">
 @import "../sass/utils/variables";
 @import "../sass/layout/form_signIn";
+@import "../sass/components/buttons";
+@import "../sass/pages/signin";
 </style>
