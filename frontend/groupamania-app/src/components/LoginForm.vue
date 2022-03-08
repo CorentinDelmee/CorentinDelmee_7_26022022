@@ -45,13 +45,18 @@ export default {
             })
             .then(res => res.json())
             .then((data) => { 
-              localStorage.setItem("UserLogin", JSON.stringify(data)); 
-              console.log(JSON.parse(localStorage.getItem("UserLogin")));
-              })
-            .then(() => {console.log("Connexion")})
-            .then(window.location.href = "http://localhost:8080/#/home")
-            .catch(err => console.log(err));
 
+              if(data.error){
+                console.log(new Error (data.error));
+              }
+              else{
+                console.log(data);
+                localStorage.setItem("UserLogin", JSON.stringify(data)); 
+                console.log("Connexion")
+                window.location.href = "http://localhost:8080/#/home"
+              }
+            })
+            .catch(err => console.log(err));
     }
   }
 }

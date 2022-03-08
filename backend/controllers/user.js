@@ -39,8 +39,11 @@ exports.login = (req,response, next) => {
   let query = connexion.query(sql, user_email, (err, res) => {
     result = (JSON.parse(JSON.stringify(res)))
 
-    if(err) throw err;
-    if(res.length > 0) {
+    const isEmpty = Object.keys(res).length === 0;
+    if(isEmpty) {
+      return response.status(401).json({ error : "L'utilisateur n'a pas été trouvé" })
+    }
+    if(!isEmpty) {
       bcrypt.compare(req.body.user_login.password, result[0].passwordhash)
         .then(valid => {
           if (!valid) {
@@ -48,9 +51,8 @@ exports.login = (req,response, next) => {
           }
           console.log("Mot de passe correct")
           response.status(200).json({User:result[0]})
-
         })
-      .catch(error => console.log(error));
+      .catch(error => response.status(500).json({ error }));
     }
   })
 

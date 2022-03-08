@@ -39,6 +39,8 @@ import PostCard from '../components/PostCard.vue'
 import InfoGroupomania from '../components/InfoGroupomania.vue'
 import PostForm from '../components/PostForm.vue'
 
+import { mapActions } from "vuex";
+
 export default {
   name: 'HomeView',
   components: {
@@ -48,12 +50,19 @@ export default {
     InfoGroupomania,
     PostForm,
   },
+  methods:{
+    ...mapActions(["updateProfil"]),
+  },
 
   mounted() {
     let externalScript = document.createElement("script")
     externalScript.setAttribute("src", "https://kit.fontawesome.com/5f4715b4d1.js");
     externalScript.setAttribute("crossorigin", "anonymous")
-    document.body.appendChild(externalScript);
+    document.body.appendChild(externalScript);    
+  },
+
+  created(){
+    this.updateProfil();
   }
 
 }

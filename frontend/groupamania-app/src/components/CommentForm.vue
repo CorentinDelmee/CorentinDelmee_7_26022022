@@ -15,7 +15,6 @@
 
 <script>
 
-console.log("")
 export default {
   name: 'CommentForm',
   props: {
@@ -27,12 +26,13 @@ export default {
   methods: { 
     saveComment(id){
 
+        let profil = JSON.parse(localStorage.getItem("UserLogin")).User;
 
         let comment = {
-              nom: "Delmee",
-              prenom: "Corentin",
+              nom: profil.nom,
+              prenom: profil.prenom,
               content: document.getElementById(`${id}commentText`).value,
-              user_id: 1,
+              user_id: profil.id,
               post_id: id,
         }
 

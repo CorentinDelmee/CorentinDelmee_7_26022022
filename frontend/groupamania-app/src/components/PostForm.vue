@@ -23,8 +23,12 @@ export default {
   name: 'PostForm',
   methods:{
         savePublication() {
+            let profil = JSON.parse(localStorage.getItem("UserLogin")).User;
+
             let post = {
-                user_id : 1,
+                nom: profil.nom,
+                prenom: profil.prenom,
+                user_id : profil.id,
                 content : document.getElementById("post_content").value
             }
 

@@ -2,6 +2,14 @@
 // Création d'une classe post
 
 class publication {
+    nom = {
+        type: String,
+        maxLenght: 200,
+    }
+    prenom = {
+        type: String,
+        maxLenght: 200,
+    }
     user_id = {
         type: Number,
         required: true,
@@ -11,7 +19,9 @@ class publication {
         required: true,
         maxLenght: 500,
     }
-    constructor(user_id, content){
+    constructor(nom, prenom, user_id, content){
+        this.nom = nom;
+        this.prenom = prenom;
         this.user_id = user_id;
         this.content = content;
     }

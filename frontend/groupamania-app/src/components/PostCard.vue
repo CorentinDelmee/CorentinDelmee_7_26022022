@@ -8,7 +8,7 @@
                     <i class="fas fa-id-card-alt"></i>
                 </div>
                 <div class="content_div">
-                    <h3>Nom Prénom</h3>
+                    <h3>{{allMessage.prenom + " " + allMessage.nom}}</h3>
                     <p :id="allMessage.id + `paraf`"><span role="textbox" :id="allMessage.id + `span`">{{ allMessage.content }}</span></p>
                 </div>
             </div>

@@ -1,0 +1,49 @@
+.profil_options{
+    display: none;
+
+    background-color: white;
+    box-shadow: 0 0 11px rgba(33,33,33,0.7); 
+
+    padding: 10px 25px 10px 25px;
+    border-radius: 25px;
+
+    position: absolute;
+    top: 80px;
+
+    flex-direction: column;
+
+    p{
+        padding-right: 5px;
+    }
+
+    .nom_option{
+        display: flex;
+        align-items: center;
+        p{
+            margin-right: 10px;
+        }
+        .modify_icon{
+            width: 18px;
+    
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    .disconnect_option{
+        p{
+            &:hover{
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    }
+    .delete_option{
+        p{
+            &:hover{
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    }
+}

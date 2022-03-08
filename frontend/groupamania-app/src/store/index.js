@@ -7,6 +7,8 @@ export default createStore({
     allMessage : [],
 
     allComment : [],
+
+    profil: [],
   },
 
 
@@ -17,7 +19,11 @@ export default createStore({
 
     allComment(state) {
       return state.allComment;
-    }
+    },
+
+    profil(state) {
+      return state.profil;
+    },
   },
 
 
@@ -28,6 +34,10 @@ export default createStore({
 
     setComment(state, allComment){
       state.allComment = allComment;
+    },
+
+    setProfil(state,profil){
+      state.profil = profil;
     }
   },
 
@@ -57,6 +67,12 @@ export default createStore({
         })
         .catch((err) => console.error(err));
     },
+
+    updateProfil(context){
+      let profilData = JSON.parse(localStorage.getItem("UserLogin")).User;
+      context.commit("setProfil", profilData);
+    }
+
 
   },
 

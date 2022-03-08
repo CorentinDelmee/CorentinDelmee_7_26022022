@@ -9,7 +9,7 @@ let publication = require("../models/Publication")
 // Créer une publication
 
 exports.createPublication = (req, res, next) => {
-  let post = new publication(req.body.post.user_id, req.body.post.content);
+  let post = new publication(req.body.post.nom, req.body.post.prenom, req.body.post.user_id, req.body.post.content);
   let sql = "INSERT INTO postes SET ?";
   let query = connexion.query(sql,post, (err, res) => {
     if(err) throw err;
