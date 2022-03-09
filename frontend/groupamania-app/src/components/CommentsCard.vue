@@ -14,7 +14,7 @@
 
 <script>
 
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: 'CommentsCard',
@@ -29,7 +29,6 @@ export default {
   },
 
   methods: {
-      ...mapActions(["fetchAllComment"]),
 
       DeletePost(id){
         fetch(`http://localhost:3000/api/comments/${id}`, {
@@ -46,9 +45,6 @@ export default {
 
 
   },
-  created() {
-      this.fetchAllComment();
-  }
 }
 
 </script>

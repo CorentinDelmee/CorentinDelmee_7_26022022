@@ -47,7 +47,7 @@ export default {
       ...mapGetters(["allMessage"])
   },
   methods: {
-      ...mapActions(["fetchAllMessage"]),
+      ...mapActions(["fetchAllMessage", "fetchAllComment"]),
 
             // Fonction suppression d'un post
 
@@ -103,7 +103,6 @@ export default {
         createdTextarea.addEventListener("keydown", (e) => {
             const keyName = e.key;
             if(keyName === 'Enter'){
-                console.log("C'est là bonne touchheeeee")
 
                 e.preventDefault();
 
@@ -148,7 +147,8 @@ export default {
 
 
   created() {
-      this.fetchAllMessage();
+    this.fetchAllMessage();
+    this.fetchAllComment();
   }
 }
 
