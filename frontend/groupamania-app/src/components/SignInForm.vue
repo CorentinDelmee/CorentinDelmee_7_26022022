@@ -2,6 +2,9 @@
 <div>
     <div class="form_Container">
       <form action="">
+        <div>
+          <p>COMMENT</p>
+        </div>
         <div class="identity_Container">
           <div class="identity_form_settings">
               <input type="text" name="nom" id="nom" class="input_settings" placeholder="&#xf406;  Nom">
@@ -43,7 +46,7 @@ export default {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({user})
+            body: JSON.stringify(user)
             })
             .then(res => res.json())
             .then(window.location.href = "http://localhost:8080/#/login")

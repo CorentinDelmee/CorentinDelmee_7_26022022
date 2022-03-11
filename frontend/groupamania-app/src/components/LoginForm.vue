@@ -30,6 +30,7 @@ export default {
   name: 'LoginForm',
   methods: {
     SendLoginForm(){
+      
       let user_login = {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value,
@@ -39,14 +40,14 @@ export default {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({user_login})
+            body: JSON.stringify(user_login)
             })
             .then(res => res.json())
             .then((data) => { 
 
-              if(data.error){
+              if(data.error){ 
                 console.log(new Error (data.error));
               }
               else{

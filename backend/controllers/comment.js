@@ -9,7 +9,7 @@ let comment = require("../models/Comment")
 // Créer une publication
 
 exports.createComment = (req, res, next) => {
-  let post = new comment(req.body.comment.nom, req.body.comment.prenom, req.body.comment.content, req.body.comment.user_id, req.body.comment.post_id);
+  let post = new comment(req.body.nom, req.body.prenom, req.body.content, req.body.user_id, req.body.post_id);
   let sql = "INSERT INTO comment SET ?";
   let query = connexion.query(sql,post, (err, res) => {
     if(err) throw err;
@@ -36,7 +36,7 @@ exports.getAllComment = (req,response, next) => {
 // Modification d'une publication
 
 exports.modifyComment = (req,res, next) => {
-  let sql = `UPDATE comment SET content = '${req.body.post_modify.content}' WHERE id = ${req.params.id}`;
+  let sql = `UPDATE comment SET content = '${req.body.content}' WHERE id = ${req.params.id}`;
   let query = connexion.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res);

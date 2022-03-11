@@ -27,14 +27,14 @@ export default {
 
       ModifyNom(){
 
-        let User = JSON.parse(localStorage.getItem("UserLogin")).User;
+        let profil = JSON.parse(localStorage.getItem("UserLogin")).User;
 
         let parentDiv = document.getElementById("nom_div");
         let messagePos = document.getElementById("nom_paraf");
         let newTextarea = document.createElement("textarea")
 
         newTextarea.setAttribute("placeholder", "Rentrez votre nouveau nom")
-        newTextarea.textContent = User.nom;
+        newTextarea.textContent = profil.nom;
         
         messagePos.remove();
         parentDiv.appendChild(newTextarea);
@@ -63,22 +63,24 @@ export default {
                 e.preventDefault();
 
                 let user_modify = {
-                    nom : createdTextarea.value
+                    nom : createdTextarea.value,
+                    user_id: profil.id
                 }
 
-                User.nom = user_modify.nom
-                let data = {User}
+                profil.nom = user_modify.nom
+                let data = {profil}
                 console.log("Bonjour")
-                console.log(User.nom)
+                console.log(profil.nom)
                 localStorage.setItem("UserLogin", JSON.stringify(data))
 
-                fetch(`http://localhost:3000/api/auth/name/${User.id}`,{
+                fetch(`http://localhost:3000/api/auth/name/${profil.id}`,{
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + profil.token
                     },
-                    body: JSON.stringify({user_modify})
+                    body: JSON.stringify(user_modify)
                     })
                     .then(res => res.json())
                     .then(location.reload())
@@ -96,14 +98,14 @@ export default {
       },
       ModifyPrenom(){
 
-        let User = JSON.parse(localStorage.getItem("UserLogin")).User;
+        let profil = JSON.parse(localStorage.getItem("UserLogin")).User;
 
         let parentDiv = document.getElementById("prenom_div");
         let messagePos = document.getElementById("prenom_paraf");
         let newTextarea = document.createElement("textarea")
 
         newTextarea.setAttribute("placeholder", "Rentrez votre nouveau prenom")
-        newTextarea.textContent = User.prenom;
+        newTextarea.textContent = profil.prenom;
         
         messagePos.remove();
         parentDiv.appendChild(newTextarea);
@@ -132,22 +134,24 @@ export default {
                 e.preventDefault();
 
                 let user_modify = {
-                    prenom : createdTextarea.value
+                    prenom : createdTextarea.value,
+                    user_id: profil.id
                 }
 
-                User.prenom = user_modify.prenom
-                let data = {User}
+                profil.prenom = user_modify.prenom
+                let data = {profil}
                 console.log("Bonjour")
-                console.log(User.prenom)
+                console.log(profil.prenom)
                 localStorage.setItem("UserLogin", JSON.stringify(data))
 
-                fetch(`http://localhost:3000/api/auth/surname/${User.id}`,{
+                fetch(`http://localhost:3000/api/auth/surname/${profil.id}`,{
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + profil.token
                     },
-                    body: JSON.stringify({user_modify})
+                    body: JSON.stringify(user_modify)
                     })
                     .then(res => res.json())
                     .then(location.reload())
@@ -165,16 +169,18 @@ export default {
         window.location.href = "http://localhost:8080/#/"
       },
       DeleteProfil(){
-        let User = JSON.parse(localStorage.getItem("UserLogin")).User;
+        let profil = JSON.parse(localStorage.getItem("UserLogin")).User;
         
         localStorage.removeItem("UserLogin")
 
-        fetch(`http://localhost:3000/api/auth/${User.id}`, {
+        fetch(`http://localhost:3000/api/auth/${profil.id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + profil.token
             },
+            body: JSON.stringify(profil)
         })
         .then(res => res.json())
         .then(window.location.href = "http://localhost:8080/#/")

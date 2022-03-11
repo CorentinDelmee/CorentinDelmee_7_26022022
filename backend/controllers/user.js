@@ -18,9 +18,9 @@ const { response } = require("express");
 // Logique métier : User Inscription
 
 exports.signup = (req, res, next) => {
-  bcrypt.hash(req.body.user.passwordhash, 10)
+  bcrypt.hash(req.body.passwordhash, 10)
     .then(hash => {
-      let user = new User(req.body.user.nom, req.body.user.prenom, req.body.user.email, hash);
+      let user = new User(req.body.nom, req.body.prenom, req.body.email, hash);
       let sql = "INSERT INTO utilisateur SET ?"
       let query = connexion.query(sql, user, (err, res) => {
         if(err) throw err;
@@ -34,7 +34,7 @@ exports.signup = (req, res, next) => {
 // Logique métier : User Connexion
 
 exports.login = (req,response, next) => {
-  let user_email = req.body.user_login.email;
+  let user_email = req.body.email;
   let sql = "SELECT * FROM utilisateur WHERE email = ?"; /*passwordhash*/
   let query = connexion.query(sql, user_email, (err, res) => {
     result = (JSON.parse(JSON.stringify(res)))
@@ -44,13 +44,20 @@ exports.login = (req,response, next) => {
       return response.status(401).json({ error : "L'utilisateur n'a pas été trouvé" })
     }
     if(!isEmpty) {
-      bcrypt.compare(req.body.user_login.password, result[0].passwordhash)
+      bcrypt.compare(req.body.password, result[0].passwordhash)
         .then(valid => {
           if (!valid) {
             return res.status(401).json({ error: 'Mot de passe incorrect !' });
           }
           console.log("Mot de passe correct")
+          result[0].token = jwt.sign(
+            { userId: result[0].id },
+            '0tzC7I9v1uDBdKUHrilvGCZ69u8bvrO2h5xw939eA0wBP9l7Sh4MJT498IbxBKT7PYg0GubbKFoXLdK5Zb37p69CB9xcF5AiTLNFhOBoK9PW9I0ubWyqDz9YdTrX4m8jGkBam7gv93wO1wevYx3l6Eyyc9dU6pr4hje7WFyoxmmoM2pzaqI9WKvkYaDbaD8JP9rmadmm',
+          )
+
+          console.log(result[0]);
           response.status(200).json({User:result[0]})
+
         })
       .catch(error => response.status(500).json({ error }));
     }

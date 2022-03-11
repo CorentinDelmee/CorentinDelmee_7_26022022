@@ -19,11 +19,15 @@ class publication {
         required: true,
         maxLenght: 500,
     }
-    constructor(nom, prenom, user_id, content){
+    file = {
+        type: String,
+    }
+    constructor(nom, prenom, user_id, content, file){
         this.nom = nom;
         this.prenom = prenom;
         this.user_id = user_id;
         this.content = content;
+        this.file = file;
     }
 }
 

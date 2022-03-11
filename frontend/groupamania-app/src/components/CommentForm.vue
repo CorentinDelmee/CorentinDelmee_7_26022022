@@ -42,9 +42,10 @@ export default {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + profil.token
             },
-            body: JSON.stringify({comment})
+            body: JSON.stringify(comment)
             })
             .then(res => res.json())
             .then(location.reload())

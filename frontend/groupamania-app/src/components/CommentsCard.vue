@@ -31,12 +31,17 @@ export default {
   methods: {
 
       DeletePost(id){
+
+        let profil = JSON.parse(localStorage.getItem("UserLogin")).User
+
         fetch(`http://localhost:3000/api/comments/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + profil.token
             },
+            body: JSON.stringify(profil)
         })
         .then(res => res.json())
         .then(location.reload())

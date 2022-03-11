@@ -2,6 +2,11 @@
 
 const express = require('express');
 
+// Module path
+
+const path = require('path');
+
+
 // Appel de l'objet connection
 
 const connexion = require("./env")
@@ -27,7 +32,6 @@ const publicationRoutes = require("./routes/publication");
 // Appel du router publication
 
 const commentRoutes = require("./routes/comment");
-const comment = require('./models/Comment');
 
 // Initialisation de l'app
 
@@ -43,6 +47,10 @@ app.use((req, res, next) => {
   });
 
 app.use(express.json());
+
+// Multer Middleware path setup
+
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 //Utilisation de app.use des routes user
 
