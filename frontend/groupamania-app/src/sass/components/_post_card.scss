@@ -8,7 +8,7 @@
 
     @media (max-width: 992px) {
         width: 90%;
-        background-color: darken($color: $special_color, $amount: 10);
+        background-color: lighten($color: $special_color, $amount: 1);
 
     }
 

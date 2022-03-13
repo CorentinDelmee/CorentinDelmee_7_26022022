@@ -20,12 +20,6 @@
 
 <script>
 
-
-//if(localStorage){
-  
-//}
-
-
 export default {
   name: 'LoginForm',
   methods: {

@@ -14,7 +14,9 @@
 
                     <LoginForm/>
                     <div class="signIn_button_div">
-                        <button @click="GoSignInView" class="button_settings signIn_button">Inscrivez vous</button>
+                        <router-link to="/">
+                            <button class="button_settings signIn_button">Inscrivez vous</button>
+                        </router-link>
                     </div>
 
             </div>
@@ -23,7 +25,9 @@
                     <h2>S'inscrire</h2>
                     <h2 class="Welcome">Bienvenue chez <span class="Groupomania">Groupomania</span></h2>                    
                     <div class="button_Container">
-                        <button @click="GoSignInView" class="button_settings signIn_button">Inscrivez vous</button>
+                        <router-link to="/">
+                            <button class="button_settings signIn_button">Inscrivez vous</button>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -43,12 +47,6 @@ export default {
   name: 'LogIn',
   components: {
       LoginForm
-  },
-  methods: {
-      GoSignInView(){
-        window.location.href = "http://localhost:8080/#/"
-        window.location.reload()
-      }
   },
 
   mounted() {

@@ -13,16 +13,19 @@
                     <img src="../assets/icon-left-font-monochrome-white.png" alt="" class="icon_logo">
                 </div>
                 <div class="button_Container">
-                    <button @click="GoLoginView" class="button_settings login_button">Se connecter</button>
-                    <!--<router-link to = "/login" replace class="button_settings login_button"> Se connecter </router-link>-->
+                    <router-link to = "/login">
+                        <button class="button_settings login_button">Se connecter</button>                    
+                    </router-link>
                 </div>
             </div>
             <div class="main_Text">
                 <div class="section_Container">
                     <h1>Créer votre compte</h1>
                     <SignInForm/>
-                    <div class="responsive_connexion_button"> 
-                        <button @click="GoLoginView" class="button_settings login_button">Se connecter</button>
+                    <div class="responsive_connexion_button">
+                        <router-link to = "/login">
+                            <button class="button_settings login_button">Se connecter</button>                    
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -43,13 +46,6 @@ export default {
   components: {
     SignInForm,
   },
-  methods: {
-      GoLoginView(){
-          window.location.href = "http://localhost:8080/#/login"
-          window.location.reload()
-      }
-  },
-
   mounted() {
     let externalScript = document.createElement("script")
     externalScript.setAttribute("src", "https://kit.fontawesome.com/5f4715b4d1.js");

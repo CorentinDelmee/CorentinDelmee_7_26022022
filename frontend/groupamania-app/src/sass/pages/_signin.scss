@@ -44,9 +44,11 @@
             .login_button{
                 width: 50%;
                 color: white;
-
+                
                 background-color: $color_tertiary;
                 border: 1px solid white;
+
+                text-decoration: none;
 
                 &:active{
                     background-color: $color_tertiary_darken;
@@ -93,28 +95,6 @@
                 font-size: 60px;
                 color: $color_tertiary;
             }
-
-            .responsive_connexion_button{
-                display: none;
-                text-align: center;
-    
-                @media(max-width: 1200px){
-                    display: initial;
-                }
-                .login_button{
-                    width: 200px;
-                    color: white;
-        
-                    background-color: $color_tertiary;
-                    border: 1px solid white;
-                    
-                    margin-top: 30px;
-                    
-                    &:active{
-                        background-color: $color_tertiary_darken;
-                    }
-                }
-            }
         }
 
         .button_Container{
@@ -131,6 +111,29 @@
                     background-color: black;
                 }
             }
+        }
+    }
+}
+
+
+.responsive_connexion_button{
+    width: 100%;
+    display: none;
+    text-align: center;
+    margin-top: 150px;
+    @media(max-width: 1200px){
+        display: initial;
+    }
+    .login_button{       
+        margin-top: 20px;             
+        color: white;
+        width: 200px;
+
+        background-color: $color_tertiary;
+        border: 1px solid white;
+        
+        &:active{
+            background-color: $color_tertiary_darken;
         }
     }
 }
