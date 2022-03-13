@@ -6,10 +6,10 @@ const connexion = require("../env")
 
 let comment = require("../models/Comment")
 
-// Créer une publication
+// Créer un commentaire
 
 exports.createComment = (req, res, next) => {
-  let post = new comment(req.body.nom, req.body.prenom, req.body.content, req.body.user_id, req.body.post_id);
+  let post = new comment(req.body.nom, req.body.prenom, req.body.content, req.body.user_id, req.body.post_id, req.body.user_image);
   let sql = "INSERT INTO comment SET ?";
   let query = connexion.query(sql,post, (err, res) => {
     if(err) throw err;
@@ -18,7 +18,7 @@ exports.createComment = (req, res, next) => {
   });
 };
 
-// Récupérer toutes les publications
+// Récupérer tout les commentaires
 
 exports.getAllComment = (req,response, next) => {
   let result;
@@ -33,7 +33,7 @@ exports.getAllComment = (req,response, next) => {
 
 };
 
-// Modification d'une publication
+// Modification d'un commentaire
 
 exports.modifyComment = (req,res, next) => {
   let sql = `UPDATE comment SET content = '${req.body.content}' WHERE id = ${req.params.id}`;
@@ -47,11 +47,12 @@ exports.modifyComment = (req,res, next) => {
 // Supprimer une publication
 
 exports.deleteComment = (req,res, next) =>{
-  let sql = `DELETE FROM comment WHERE id = ${req.params.id /*req.body.post_delete.post_id*/}`
-  let query = connexion.query(sql, (err, res) => {
+  if(req.body.user_id === req.body.id || req.body.role === "Admin"){
+    let sql = `DELETE FROM comment WHERE id = ${req.params.id}`
+    let query = connexion.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res);
     console.log("Commentaire supprimé")
-
   })
+  }
 }

@@ -34,6 +34,7 @@ export default {
               content: document.getElementById(`${id}commentText`).value,
               user_id: profil.id,
               post_id: id,
+              user_image: profil.file,
         }
 
 

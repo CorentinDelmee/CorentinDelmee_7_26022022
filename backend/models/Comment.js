@@ -25,13 +25,18 @@ class comment {
         type: Number,
         required: true,
     }
+    user_image = {
+        type: String,
+        required: true,
+    }
 
-    constructor(nom, prenom, content, user_id, post_id){
+    constructor(nom, prenom, content, user_id, post_id, user_image){
         this.nom = nom;
         this.prenom = prenom;
         this.content = content;
         this.user_id = user_id;
         this.post_id = post_id;
+        this.user_image = user_image;
     }
 }
 
