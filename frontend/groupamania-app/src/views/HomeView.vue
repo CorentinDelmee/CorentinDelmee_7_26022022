@@ -16,14 +16,13 @@
 
           <section class="section_message">
             <PostForm/>
-            <PostCard/>
+            <PostCard v-for="Message in allMessage" :key="Message.id" :id="Message.id" :nom="Message.nom" :prenom="Message.prenom" :content="Message.content" :file="Message.file" :user_id="Message.user_id" :user_image="Message.user_image"/>
           </section>
 
         <!-- Aside Most liked post card -->
 
           <aside class="top_like">
-            <h2>Post populaires</h2>
-            <PopularPost/>
+            
           </aside>
 
       </div>
@@ -34,24 +33,25 @@
 <script>
 // @ is an alias to /src
 import MainNavigation from '../components/MainNavigation.vue'
-import PopularPost from '../components/PopularPost.vue'
 import PostCard from '../components/PostCard.vue'
 import InfoGroupomania from '../components/InfoGroupomania.vue'
 import PostForm from '../components/PostForm.vue'
 
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: 'HomeView',
   components: {
     MainNavigation,
-    PopularPost,
     PostCard,
     InfoGroupomania,
     PostForm,
   },
+  computed: {
+      ...mapGetters(["allMessage"])
+  },
   methods:{
-    ...mapActions(["updateProfil"]),
+    ...mapActions(["updateProfil", "fetchAllMessage"]),
   },
 
   mounted() {
@@ -59,9 +59,11 @@ export default {
     externalScript.setAttribute("src", "https://kit.fontawesome.com/5f4715b4d1.js");
     externalScript.setAttribute("crossorigin", "anonymous")
     document.body.appendChild(externalScript);    
+
   },
 
   created(){
+    this.fetchAllMessage();
     this.updateProfil();
   }
 

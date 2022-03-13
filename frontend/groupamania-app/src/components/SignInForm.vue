@@ -2,9 +2,10 @@
 <div>
     <div class="form_Container">
       <form action="">
-        <div>
-          <p>COMMENT</p>
-        </div>
+          <input @change="ChangeProfilImage" type="file" id="profil_image_input" hidden>
+          <label for="profil_image_input" class="image_input">
+            <img :src="profilImage" alt="">
+          </label>
         <div class="identity_Container">
           <div class="identity_form_settings">
               <input type="text" name="nom" id="nom" class="input_settings" placeholder="&#xf406;  Nom">
@@ -31,27 +32,35 @@
 
 export default {
   name: 'SignInForm',
+  data: function() {
+        return {
+            profilImage: "http://localhost:3000/images/profil_photo_default.png",
+        };
+    },
   methods: {
     SendSignInForm(){
-      let user = {
-        nom: document.getElementById("nom").value,
-        prenom: document.getElementById("prenom").value,
-        email: document.getElementById("email").value,
-        passwordhash: document.getElementById("password").value,
-      }
+
+      let formData = new FormData();
+      formData.append("nom", document.getElementById("nom").value);
+      formData.append("prenom", document.getElementById("prenom").value);
+      formData.append("email", document.getElementById("email").value);
+      formData.append("passwordhash", document.getElementById("password").value);
+      formData.append("role", "Membre");
+      formData.append("image", document.getElementById("profil_image_input").files[0]);
 
       fetch("http://localhost:3000/api/auth/signup", {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
+            body: formData
             })
             .then(res => res.json())
             .then(window.location.href = "http://localhost:8080/#/login")
             .catch(err => console.log(err));
 
+    },
+
+    ChangeProfilImage(){
+      let profil_image_input = document.getElementById("profil_image_input");
+      this.profilImage = URL.createObjectURL(profil_image_input.files[0]);
     }
   }
 }

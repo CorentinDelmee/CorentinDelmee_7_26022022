@@ -1,11 +1,36 @@
 .form_Container{
     height: 35%;
-    margin-top: 80px;
+    margin-top: 50px;
 
     form{
         height: 100%;
         width: 50%;
         margin: auto;
+
+        @media(max-width: 567px){
+            width: 80%;
+            margin-left: 7%;
+        }
+    }
+    .image_input{
+        width: 75px;
+        height: 75px;
+
+        margin: auto;
+
+        img{
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            border-radius: 50px;
+            border: 2px solid black;
+            object-fit: cover;
+        }
+
+        &:hover{
+            opacity: 0.5;
+            cursor: pointer;
+        }
     }
     .identity_Container{
         display: flex;
@@ -13,11 +38,19 @@
         width: 100%;
         margin: auto;
 
+        @media(max-width: 1200px){
+            display: initial;
+        }
         
         margin-top: 25px;
         .identity_form_settings{
             width: 45%;
             height: 60px;
+
+            @media(max-width: 1200px){
+                margin-top: 25px;
+                width: 100%;
+            }
         
         }
     }

@@ -20,7 +20,8 @@ const { response } = require("express");
 exports.signup = (req, res, next) => {
   bcrypt.hash(req.body.passwordhash, 10)
     .then(hash => {
-      let user = new User(req.body.nom, req.body.prenom, req.body.email, hash);
+      let filename = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+      let user = new User(req.body.nom, req.body.prenom, req.body.email, hash, req.body.role, filename);
       let sql = "INSERT INTO utilisateur SET ?"
       let query = connexion.query(sql, user, (err, res) => {
         if(err) throw err;
@@ -69,19 +70,19 @@ exports.login = (req,response, next) => {
 
 exports.modifyName = (req,res, next) => {
 
-  let sql = `UPDATE utilisateur SET nom = "${req.body.user_modify.nom}" WHERE id = ${req.params.id}`;
+  let sql = `UPDATE utilisateur SET nom = "${req.body.nom}" WHERE id = ${req.params.id}`;
   let query = connexion.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res);
   })
 
-  let sql2 = `UPDATE postes SET nom = "${req.body.user_modify.nom}" WHERE user_id = ${req.params.id}`;
+  let sql2 = `UPDATE postes SET nom = "${req.body.nom}" WHERE user_id = ${req.params.id}`;
   let query2 = connexion.query(sql2, (err, res) => {
     if(err) throw err;
     console.log(res)
   })
 
-  let sql3 = `UPDATE comment SET nom = "${req.body.user_modify.nom}" WHERE user_id = ${req.params.id}`;
+  let sql3 = `UPDATE comment SET nom = "${req.body.nom}" WHERE user_id = ${req.params.id}`;
   let query3 = connexion.query(sql3, (err, res) => {
     if(err) throw err;
     console.log(res)
@@ -91,19 +92,19 @@ exports.modifyName = (req,res, next) => {
 
 exports.modifySurname = (req,res, next) => {
 
-  let sql = `UPDATE utilisateur SET prenom = "${req.body.user_modify.prenom}" WHERE id = ${req.params.id}`;
+  let sql = `UPDATE utilisateur SET prenom = "${req.body.prenom}" WHERE id = ${req.params.id}`;
   let query = connexion.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res);
   })
 
-  let sql2 = `UPDATE postes SET prenom = "${req.body.user_modify.prenom}" WHERE user_id = ${req.params.id}`;
+  let sql2 = `UPDATE postes SET prenom = "${req.body.prenom}" WHERE user_id = ${req.params.id}`;
   let query2 = connexion.query(sql2, (err, res) => {
     if(err) throw err;
     console.log(res)
   })
 
-  let sql3 = `UPDATE comment SET prenom = "${req.body.user_modify.prenom}" WHERE user_id = ${req.params.id}`;
+  let sql3 = `UPDATE comment SET prenom = "${req.body.prenom}" WHERE user_id = ${req.params.id}`;
   let query3 = connexion.query(sql3, (err, res) => {
     if(err) throw err;
     console.log(res)

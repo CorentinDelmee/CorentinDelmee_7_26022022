@@ -17,6 +17,10 @@
         width: 40%;
         background-color: $color_tertiary;
 
+        @media(max-width: 1200px){
+            display: none;
+        }
+
         .h2_Container{
             text-align: center;
             margin-top: 350px;
@@ -71,15 +75,45 @@
         width: 60%;
         background-color: white;
 
+        @media(max-width: 1200px){
+            width: 100%;
+        }
+
         .section_Container{
             text-align: center;
             height:  70%;
             width: 100%;
+
+            @media(max-width: 1200px){
+                height: 90%;
+            }
             h1{
                 margin: 0;
 
                 font-size: 60px;
                 color: $color_tertiary;
+            }
+
+            .responsive_connexion_button{
+                display: none;
+                text-align: center;
+    
+                @media(max-width: 1200px){
+                    display: initial;
+                }
+                .login_button{
+                    width: 200px;
+                    color: white;
+        
+                    background-color: $color_tertiary;
+                    border: 1px solid white;
+                    
+                    margin-top: 30px;
+                    
+                    &:active{
+                        background-color: $color_tertiary_darken;
+                    }
+                }
             }
         }
 
@@ -88,6 +122,10 @@
             .signIn_button{
                 background-color: $color_tertiary;
                 color: white;
+
+                @media(max-width: 1200px){
+                    width: 200px;
+                }
 
                 &:active{
                     background-color: black;

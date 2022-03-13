@@ -21,6 +21,9 @@
                 <div class="section_Container">
                     <h1>Créer votre compte</h1>
                     <SignInForm/>
+                    <div class="responsive_connexion_button"> 
+                        <button @click="GoLoginView" class="button_settings login_button">Se connecter</button>
+                    </div>
                 </div>
             </div>
         </div>

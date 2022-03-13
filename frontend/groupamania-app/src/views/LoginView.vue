@@ -13,6 +13,9 @@
                     </div>
 
                     <LoginForm/>
+                    <div class="signIn_button_div">
+                        <button @click="GoSignInView" class="button_settings signIn_button">Inscrivez vous</button>
+                    </div>
 
             </div>
             <div class="main_Text">

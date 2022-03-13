@@ -6,6 +6,12 @@
     margin-bottom: 35px;
     border-radius: 25px;
 
+    @media (max-width: 992px) {
+        width: 90%;
+        background-color: darken($color: $special_color, $amount: 10);
+
+    }
+
     .card_post{
         width: 100%;
         background-color: white;
@@ -20,10 +26,24 @@
             margin-bottom: 15px;
             .avatar_div{
                 width: 100px;
-                i{
-                    margin: 30px 0 0 30px;
-                    font-size: 45px;
-                    color: $special_color2;
+                @media(max-width: 576px){
+                    max-width: 60px;
+                    max-height: 60px;
+                }
+                img{
+                    margin-top: 25px;
+                    margin-left: 20px;
+
+                    max-height: 75px;
+                    max-width: 75px;
+
+                    border: 2px solid black;
+                    object-fit: cover;
+
+                    @media(max-width: 576px){
+                        max-width: 40px;
+                        max-height: 40px;
+                    }
                 }
             }
             .content_div{
@@ -40,14 +60,20 @@
                     max-height: 250px;
                     box-shadow: 0 0 11px rgba(33,33,33,0.3); 
                     border: 1px solid black;
+                    @media(max-width: 576px){
+                        max-width: 200px;
+                        max-height: 200px;
+                    }
+                }
+                figcaption{
+                    font-size: 13px;
+                    &:hover{
+                        color: $color_tertiary;
+                    }
                 }
                 p{
                     padding-bottom: 10px;
                     margin: 10px 0 10px 0;
-                }
-
-                figcaption{
-                    font-size: 13px;
                 }
 
                 .ModifyPost_div{
@@ -55,7 +81,7 @@
                     justify-content: space-between;
                     align-items: center;
                     margin-top: 20px;
-                    width: 175px;
+                    width: 125px;
                     button{
                         padding: 10px 20px 10px 20px;
                         border: none;
@@ -88,6 +114,9 @@
                 display: flex;
                 align-items: center;
                 margin-left: 115px;
+                @media(max-width: 576px){
+                    margin-left: 75px;
+                }
                 svg{
                     padding: 0px 0px 0 3px;
                 }
@@ -128,8 +157,6 @@
     min-height: 100px;
     margin: 0;
 }
-
-// Ne marche pas
 
 .activeTextarea{
     display: block;

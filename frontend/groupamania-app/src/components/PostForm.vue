@@ -10,8 +10,10 @@
                     </p>
 
                     <input name = "image" type="file" id="file_input" hidden @change="LabelDisplay">
-                    <label v-if="isValueInInput === false" for="file_input">Choisissez une image</label>
-                    <label v-if="isValueInInput === true" for="file_input">{{ filename }}</label>
+                    <div class="label_div">
+                        <img v-if="isValueInInput" :src="imageInInput" alt="" class="">
+                        <label for="file_input">{{ filename }}</label>
+                    </div>
                 </div>                
 
             </form>
@@ -30,7 +32,8 @@ export default {
     data: function() {
         return {
             isValueInInput: false,
-            filename: [],
+            filename: "Choisissez une image",
+            imageInInput: [],
         };
     },
   
@@ -51,6 +54,7 @@ export default {
             formData.append("user_id", profil.id);
             formData.append("content", document.getElementById("post_content").value);
             formData.append("image", document.getElementById("file_input").files[0]);
+            formData.append("user_image", profil.file);
 
             for (var value of formData.values()) {
                 console.log(value);
@@ -70,16 +74,17 @@ export default {
         },
 
 
-    LabelDisplay(){
-        let fileInput = document.getElementById("file_input");
-        if (fileInput.files) {
-            this.isValueInInput = true
-            this.filename = fileInput.files[0].name;
+        LabelDisplay(){
+            let fileInput = document.getElementById("file_input");
+            if (fileInput.files) {
+                this.isValueInInput = true
+                this.filename = fileInput.files[0].name;
+            }
+            else{
+                this.isValueInInput = false
+            }
+            this.imageInInput = URL.createObjectURL(fileInput.files[0])
         }
-        else{
-            this.isValueInInput = false
-        }
-    }
   }
 }
 

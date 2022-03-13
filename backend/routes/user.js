@@ -6,10 +6,12 @@ const router = express.Router();
 
 // Appel de User Controller 
 const userCtrl = require("../controllers/user");
+
 const auth = require('../middleware/auth');
+const multer = require('../middleware/multer-config');
 
 // Routes post inscription
-router.post("/signup", userCtrl.signup);
+router.post("/signup", multer, userCtrl.signup);
 
 // Routes post connexion
 router.post("/login", userCtrl.login);

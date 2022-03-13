@@ -22,12 +22,18 @@ class publication {
     file = {
         type: String,
     }
-    constructor(nom, prenom, user_id, content, file){
+    user_image = {
+        type: String,
+        required: true,
+        maxLenght: 500,
+    }
+    constructor(nom, prenom, user_id, content, file, user_image){
         this.nom = nom;
         this.prenom = prenom;
         this.user_id = user_id;
         this.content = content;
         this.file = file;
+        this.user_image = user_image;
     }
 }
 

@@ -17,6 +17,10 @@
         width: 60%;
         background-color: $special_color;
 
+        @media(max-width: 1200px){
+            width: 100%;
+        }
+
         .h1_Container{
             text-align: center;
             margin-top: 200px;
@@ -45,12 +49,17 @@
 
         .button_Container{
             text-align: center;
-            margin-top: 80px;
+            padding-top: 80px;
+            background-color: $special_color;
             .login_button{
                 color: white;
 
                 background-color: $color_tertiary;
                 border: 1px solid white;
+
+                @media(max-width: 1200px){
+                    width: 200px;
+                }
 
                 &:active{
                     background-color: $color_tertiary_darken;
@@ -69,6 +78,22 @@
                 color: $color_tertiary;
             }
         }
+
+        .signIn_button_div{
+            display: none;
+            text-align: center;
+            padding: 20px 0 50px 0;
+            background-color: $special_color;
+
+            @media (max-width: 1200px) {
+                display: block;
+            }
+            button{
+                color: $color_tertiary;
+                border: 1px solid $color_tertiary;
+                width: 200px;
+            }
+        }
     }
 
 
@@ -79,6 +104,10 @@
         height: 100%;
         width: 40%;
         background-color: $color_tertiary;
+
+        @media(max-width: 1200px){
+            display: none;
+        }
 
         .section_Container{
             text-align: center;

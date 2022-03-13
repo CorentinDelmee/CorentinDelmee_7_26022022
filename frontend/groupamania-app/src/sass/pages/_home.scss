@@ -16,23 +16,27 @@
                 background-color: darken($color: $special_color, $amount: 10);
                 padding: 40px 0 40px 0;
                 border-radius: 25px 25px 0 0;
+
+                @media (max-width: 1200px) {
+                    width: 70%;
+                }
+                @media (max-width: 992px){
+                    width: 100%;
+                    border-radius: 0;
+                }
             }
         
             .top_like{
                 width: 15%;
                 height: 100%;
-                background-color: darken($color: $special_color, $amount: 10);
 
                 padding: 1%;
                 border-radius: 15px;
 
                 margin-top: 10px;
 
-
-
-                h2{
-                    font-size: 20px;
-                    font-weight: 600;
+                @media (max-width: 1200px) {
+                    display: none;
                 }
             }
         }

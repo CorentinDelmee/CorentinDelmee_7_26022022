@@ -21,11 +21,21 @@ class user {
         required: true,
         maxLenght: 500
     }
-    constructor(nom, prenom, email, passwordhash){
+    role = {
+        type: String,
+        required: true,
+    }
+    file = {
+        type: String,
+        required: true,
+    }
+    constructor(nom, prenom, email, passwordhash, role, file){
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.passwordhash = passwordhash;
+        this.role = role;
+        this.file = file;
     }
 }
 
