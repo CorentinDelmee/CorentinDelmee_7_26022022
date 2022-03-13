@@ -10,6 +10,10 @@ const bcrypt = require("bcrypt");
 
 const jwt = require('jsonwebtoken');
 
+// Importation package node ("file system")
+
+const fs = require("fs");
+
 // Appel du model User
 
 const User = require("../models/User");
@@ -117,6 +121,12 @@ exports.deleteUser = (req, res, next) => {
   query = connexion.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res)
+    const filename = req.body.file.split('http://localhost:3000/images/')[1];
+    fs.unlink(`images/${filename}`, (err) => {
+      console.log(`images/${filename}`);
+      if(err) throw err;
+      console.log("file unlinked")
+    })
   })
 }
 

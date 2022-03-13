@@ -121,7 +121,6 @@ export default {
       DisconnectProfil(){
         localStorage.removeItem("UserLogin");
         this.$router.push("/login")
-        window.location.href = "http://localhost:8080/#/"
       },
       DeleteProfil(){
         let profil = JSON.parse(localStorage.getItem("UserLogin")).User;
@@ -138,7 +137,7 @@ export default {
             body: JSON.stringify(profil)
         })
         .then(res => res.json())
-        .then(this.$router.push("/auth"))
+        .then(this.$router.push("/"))
         .catch(err => console.log(err));
       }
 
