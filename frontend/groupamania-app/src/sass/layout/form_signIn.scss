@@ -42,13 +42,13 @@
             display: initial;
         }
         
-        margin-top: 25px;
+        margin-top: 40px;
         .identity_form_settings{
             width: 45%;
             height: 60px;
 
             @media(max-width: 1200px){
-                margin-top: 25px;
+                margin-top: 50px;
                 width: 100%;
             }
         
@@ -58,7 +58,17 @@
     .form_settings{
         height: 60px;
 
-        margin-top: 25px;
+        margin-top: 50px;
+    }
+    
+    .label_display{
+        position: relative;
+    }
+    
+    .content_label{
+        position: absolute;
+        top: -25px;
+        border-bottom: 1px solid black;
     }
     
     .input_settings{
@@ -70,10 +80,6 @@
 
         background-color: #ededed;
         border: none;
-
-        &::placeholder{
-            font-family:'Poppins', sans-serif, FontAwesome;
-        }
     }
 }
 

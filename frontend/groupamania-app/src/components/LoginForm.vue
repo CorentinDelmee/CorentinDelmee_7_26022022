@@ -2,11 +2,13 @@
 <div>
   <div class="form_Container">
     <form action="">
-      <div class="form_settings">
-        <input type="text" name="email" id="email" class="input_settings" placeholder="&#xf0e0;  Email">
+      <div class="form_settings label_display">
+          <label for="email" class="content_label">Email</label>            
+        <input type="text" name="email" id="email" class="input_settings">
       </div>
-      <div class="form_settings">
-        <input type="text" name="password" id="password" class="input_settings" placeholder="&#xf023;  Mot de passe">
+      <div class="form_settings label_display">
+        <label for="password" class="content_label">Mot de passe</label>            
+        <input type="text" name="password" id="password" class="input_settings">
       </div>                            
     </form>
   </div>

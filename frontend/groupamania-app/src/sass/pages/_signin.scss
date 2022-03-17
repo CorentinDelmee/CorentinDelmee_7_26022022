@@ -83,7 +83,7 @@
 
         .section_Container{
             text-align: center;
-            height:  70%;
+            height:  80%;
             width: 100%;
 
             @media(max-width: 1200px){
@@ -98,7 +98,7 @@
         }
 
         .button_Container{
-            margin-top: 80px;
+            margin-top: 50px;
             .signIn_button{
                 background-color: $color_tertiary;
                 color: white;
@@ -125,7 +125,7 @@
         display: initial;
     }
     .login_button{       
-        margin-top: 20px;             
+        margin:20px 0 40px 0;             
         color: white;
         width: 200px;
 

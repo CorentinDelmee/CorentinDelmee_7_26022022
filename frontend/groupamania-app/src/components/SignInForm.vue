@@ -4,21 +4,26 @@
       <form action="">
           <input @change="ChangeProfilImage" type="file" id="profil_image_input" hidden>
           <label for="profil_image_input" class="image_input">
+            <p>Photo de profil</p>
             <img :src="profilImage" alt="">
           </label>
         <div class="identity_Container">
-          <div class="identity_form_settings">
-              <input type="text" name="nom" id="nom" class="input_settings" placeholder="&#xf406;  Nom">
+          <div class="identity_form_settings label_display">
+              <label for="nom" class="content_label">Nom</label>
+              <input type="text" name="nom" id="nom" class="input_settings" >
           </div>
-          <div class="identity_form_settings">
-              <input type="prenom" name="prenom" id="prenom" class="input_settings" placeholder="&#xf406;  Prénom">
+          <div class="identity_form_settings label_display">
+              <label for="prenom" class="content_label">Prénom</label>            
+              <input type="prenom" name="prenom" id="prenom" class="input_settings" >
           </div>
         </div>
-        <div class="form_settings">
-          <input type="text" name="email" id="email" class="input_settings" placeholder="&#xf0e0;  Email">
+        <div class="form_settings label_display">
+          <label for="email" class="content_label">Email</label>            
+          <input type="text" name="email" id="email" class="input_settings" >
         </div>
-        <div class="form_settings">
-          <input type="text" name="password" id="password" class="input_settings" placeholder="&#xf023;  Mot de passe">
+        <div class="form_settings label_display">
+          <label for="password" class="content_label">Mot de passe</label>            
+          <input type="text" name="password" id="password" class="input_settings" >
         </div>
       </form>
     </div>
