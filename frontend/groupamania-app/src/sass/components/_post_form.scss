@@ -67,6 +67,8 @@
                     max-height: 250px;
                     box-shadow: 0 0 11px rgba(33,33,33,0.3); 
                     border: 1px solid black;
+                    object-fit: contain;
+
                     @media(max-width: 576px){
                         max-width: 200px;
                         max-height: 200px;

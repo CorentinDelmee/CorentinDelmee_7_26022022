@@ -86,10 +86,7 @@ export default {
         type: String,
         required: true,
       },
-      file: {
-        type: String,
-        required: true,
-      },
+      file: {},
       user_id: {
           type: Number,
           required: true,
@@ -137,7 +134,11 @@ export default {
             body: JSON.stringify(profil)
         })
         .then(res => res.json())
-        .then(location.reload())
+        .then((data) => {
+            let messageArray = JSON.parse(JSON.stringify(this.$store.state.allMessage));
+            let elementIndex = messageArray.findIndex((obj => obj.id == data));
+            this.$store.commit('deletePublication' , elementIndex)
+        })
         .catch(err => console.log(err));
         }
     },
@@ -168,11 +169,12 @@ export default {
             let formData = new FormData()
                 formData.append("content", createdTextarea.value);
                 formData.append("id", profil.id);
-                formData.append("user_id", user_id)   
-                formData.append("filename", filename)
+                formData.append("user_id", user_id)
                 formData.append("image", changedFile.files[0])
                 formData.append("role", profil.role);
-
+                if(filename != null){
+                    formData.append("filename", filename)  
+                }
 
                 fetch(`http://localhost:3000/api/publications/${id}`,{
                     method: 'PUT',
@@ -182,13 +184,26 @@ export default {
                     body: formData
                     })
                     .then(res => res.json())
-                    .then(location.reload())
+                    .then((data) => {
+                        console.log(data);
+                        let messageArray = JSON.parse(JSON.stringify(this.$store.state.allMessage));
+                        let elementIndex = messageArray.findIndex((obj => obj.id == data.id));
+
+                        let payload = {
+                            'elementIndex' : elementIndex,
+                            'data': data,
+                        };
+
+                        this.$store.commit('modifyPublication', payload)
+
+                    })
+                    .then(this.isModifying = false)
                     .catch(err => console.log(err));
         }
       },
       
       goBack(){
-          window.location.reload();
+          this.isModifying = false
       },
 
       // Function affichage du formulaire de commentaire

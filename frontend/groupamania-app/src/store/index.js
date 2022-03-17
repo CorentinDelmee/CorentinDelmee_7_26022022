@@ -32,6 +32,21 @@ export default createStore({
       state.allMessage = allMessage;
     },
 
+    addPublication(state, CommingMessage) {
+      state.allMessage.unshift(CommingMessage)
+    },
+
+    modifyPublication(state, payload) {
+      state.allMessage[payload.elementIndex] = payload.data;
+    },
+
+    deletePublication(state, elementIndex) {
+      console.log(elementIndex)
+      state.allMessage.splice(elementIndex, 1);
+    },
+
+
+
     setComment(state, allComment){
       state.allComment = allComment;
     },
@@ -71,7 +86,8 @@ export default createStore({
     updateProfil(context){
       let profilData = JSON.parse(localStorage.getItem("UserLogin")).User;
       context.commit("setProfil", profilData);
-    }
+    },
+
 
 
   },

@@ -69,7 +69,13 @@ export default {
             body: formData
             })
             .then(res => res.json())
-            .then(location.reload())
+            .then((data) => {
+                console.log(data)
+                this.$store.commit('addPublication', data)
+                console.log(this.$store.state.allMessage);
+                document.getElementById("post_content").value = ""
+            })
+            //.then(location.reload())
             .catch(err => console.log(err));
         },
 
