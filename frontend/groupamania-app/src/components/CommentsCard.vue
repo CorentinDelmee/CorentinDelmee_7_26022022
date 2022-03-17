@@ -51,7 +51,11 @@ export default {
               body: JSON.stringify(profil)
           })
           .then(res => res.json())
-          .then(location.reload())
+          .then((data) => {
+            let messageArray = JSON.parse(JSON.stringify(this.$store.state.allComment));
+            let elementIndex = messageArray.findIndex((obj => obj.id == data));
+            this.$store.commit('deleteComment' , elementIndex)
+          })
           .catch(err => console.log(err));
         }
       },

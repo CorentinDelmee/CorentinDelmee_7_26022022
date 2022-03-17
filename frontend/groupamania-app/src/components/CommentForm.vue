@@ -49,7 +49,13 @@ export default {
             body: JSON.stringify(comment)
             })
             .then(res => res.json())
-            .then(location.reload())
+            .then((data) => {
+                console.log(data)
+                this.$store.commit('addComment', data)
+                console.log(this.$store.state.allMessage);
+                document.getElementById(`${id}commentForm`).style.display = "none"
+                document.getElementById(`${id}commentText`).value = ""
+            })
             .catch(err => console.log(err));       
     }
   }

@@ -51,6 +51,16 @@ export default createStore({
       state.allComment = allComment;
     },
 
+    addComment(state, CommingComment) {
+      state.allComment.unshift(CommingComment)
+    },
+
+    deleteComment(state, elementIndex) {
+      console.log(elementIndex)
+      state.allComment.splice(elementIndex, 1);
+    },
+    
+
     setProfil(state,profil){
       state.profil = profil;
     }

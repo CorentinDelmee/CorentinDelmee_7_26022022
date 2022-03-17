@@ -17,7 +17,6 @@ const fs = require("fs");
 // Appel du model User
 
 const User = require("../models/User");
-const { response } = require("express");
 
 // Logique métier : User Inscription
 
