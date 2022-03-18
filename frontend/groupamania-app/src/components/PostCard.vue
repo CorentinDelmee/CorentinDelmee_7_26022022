@@ -9,7 +9,7 @@
                 </div>
                 
                 <div v-if="isModifying === false" class="content_div" :id="id + `content_div`">
-                    <h3>{{prenom + " " + nom}}</h3>
+                    <h2>{{prenom + " " + nom}}</h2>
                     <p :id="id + `paraf`">
                         <span role="textbox" :id="id + `span`">{{ content }}</span>
                     </p>
@@ -23,7 +23,7 @@
 
                 <div v-if="isModifying === true" class="content_div" :id="id + `content_div`">
 
-                    <h3>{{prenom + " " + nom}}</h3>
+                    <h2>{{prenom + " " + nom}}</h2>
                     <p class="parafTextarea">
                         <textarea name="" :id="id + `textarea`" class="activeTextarea" :value="content"></textarea>
                     </p>

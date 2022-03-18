@@ -6,7 +6,7 @@
           <img :src="allComment.user_image" alt="">
         </div>
         <div class="content_div"> 
-          <h4>{{allComment.prenom + " " + allComment.nom}}</h4>
+          <h3>{{allComment.prenom + " " + allComment.nom}}</h3>
           <p>{{allComment.content}}</p>
         </div>
       </div>

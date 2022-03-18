@@ -3,7 +3,10 @@
             <form action="" class="comment_form_formulaire">
                                 
                 <p class="comment_content">
-                    <textarea name="comment_content" :id="post_id + `commentText`" class="textarea" role="textbox" contenteditable placeholder="Votre réponse"></textarea>
+                    <label :for="post_id + `commentText`" class="label_textarea">
+                        <p>Votre réponse</p>
+                    </label>
+                    <textarea name="comment_content" :id="post_id + `commentText`" class="textarea" role="textbox" contenteditable></textarea>
                 </p>
 
             </form>

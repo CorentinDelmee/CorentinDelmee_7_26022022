@@ -5,7 +5,7 @@
                 <i class="fas fa-solid fa-pen"></i>
                 <div class="post_input_container">
                     <p class="post_content">
-                        Quoi de neuf ?
+                        <label for="post_content">Quoi de neuf ?</label>
                         <textarea name="post_content" id="post_content" class="textarea" role="textbox" contenteditable></textarea>
                     </p>
 

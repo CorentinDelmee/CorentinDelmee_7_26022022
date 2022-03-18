@@ -35,10 +35,12 @@
         }
         .content_div{
             margin-left: 10px;
-            h4{
+            h3{
                 margin: 15px 0 0 0;
                 padding-bottom: 7px;
                 border-bottom: 1px solid $color_tertiary;
+                font-size: 16px;
+                font-weight: 700;
             }
         }
     }
