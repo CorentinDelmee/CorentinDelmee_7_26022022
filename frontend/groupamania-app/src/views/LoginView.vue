@@ -38,7 +38,7 @@
 <script>
 
 if(localStorage.getItem("UserLogin")){
-    window.location.href = "http://localhost:8080/#/home";
+    this.$router.push('home');
 }
 
 import LoginForm from '../components/LoginForm.vue'

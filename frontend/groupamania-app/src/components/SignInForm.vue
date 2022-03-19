@@ -4,25 +4,25 @@
       <form action="">
           <input @change="ChangeProfilImage" type="file" id="profil_image_input" hidden>
           <label for="profil_image_input" class="image_input">
-            <p>Photo de profil</p>
+            <p id="profil_image_label">Photo de profil</p>
             <img :src="profilImage" alt="">
           </label>
         <div class="identity_Container">
           <div class="identity_form_settings label_display">
-              <label for="nom" class="content_label">Nom</label>
-              <input type="text" name="nom" id="nom" class="input_settings" >
+              <label for="nom" class="content_label" id="nom_label">Nom</label>
+              <input type="firstname" name="nom" id="nom" class="input_settings" >
           </div>
           <div class="identity_form_settings label_display">
-              <label for="prenom" class="content_label">Prénom</label>            
-              <input type="prenom" name="prenom" id="prenom" class="input_settings" >
+              <label for="prenom" class="content_label" id="prenom_label">Prénom</label>            
+              <input type="lastname" name="prenom" id="prenom" class="input_settings" >
           </div>
         </div>
         <div class="form_settings label_display">
-          <label for="email" class="content_label">Email</label>            
-          <input type="text" name="email" id="email" class="input_settings" >
+          <label for="email" class="content_label" id="email_label">Email</label>            
+          <input type="email" name="email" id="email" class="input_settings" >
         </div>
         <div class="form_settings label_display">
-          <label for="password" class="content_label">Mot de passe</label>            
+          <label for="password" class="content_label" id="password_label">Mot de passe</label>            
           <input type="password" name="password" id="password" class="input_settings" >
           <svg @click="Hidepassword" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic mdp_hide" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3z"></path></svg>
         </div>
@@ -46,22 +46,101 @@ export default {
   methods: {
     SendSignInForm(){
 
-      let formData = new FormData();
-      formData.append("nom", document.getElementById("nom").value);
-      formData.append("prenom", document.getElementById("prenom").value);
-      formData.append("email", document.getElementById("email").value);
-      formData.append("passwordhash", document.getElementById("password").value);
-      formData.append("role", "Membre");
-      formData.append("image", document.getElementById("profil_image_input").files[0]);
+      // firstName Input
 
-      fetch("http://localhost:3000/api/auth/signup", {
-            method: 'POST',
-            body: formData
-            })
-            .then(res => res.json())
-            .then(window.location.href = "http://localhost:8080/#/login")
-            .catch(err => console.log(err));
+      let firstNameInput = document.getElementById("nom");
+      let firstNameValid = false;
+      if(/^[A-Za-zÀ-ÿ]+$/.test(firstNameInput.value) && firstNameInput.value.length < 100){
+          firstNameValid = true;
+          document.getElementById("nom_label").textContent = "Nom"
+          document.getElementById("nom_label").style.color = "black"
+      }
+      else{
+          document.getElementById("nom_label").textContent = "Insérer votre nom"
+          document.getElementById("nom_label").style.color = "red"
+      }
 
+      // lastName Input
+
+      let lastNameInput = document.getElementById("prenom");
+      let lastNameValid = false;
+      if(/^[A-Za-zÀ-ÿ]+$/.test(lastNameInput.value) && lastNameInput.value.length < 100){
+            lastNameValid = true;
+            document.getElementById("prenom_label").textContent = "Prénom"
+            document.getElementById("prenom_label").style.color = "black"
+        }
+      else{
+          document.getElementById("prenom_label").textContent = "Insérer votre prénom"
+          document.getElementById("prenom_label").style.color = "red"
+      }
+
+      // Email Input
+
+      let emailInput = document.getElementById("email");
+      let emailValid = false;
+      if(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(emailInput.value) && emailInput.value.length < 255){
+        emailValid = true;
+        document.getElementById("email_label").textContent = "Email"
+        document.getElementById("email_label").style.color = "black"
+      }
+      else{
+        document.getElementById("email_label").textContent = "Insérer un email"
+        document.getElementById("email_label").style.color = "red"
+      }
+
+      // Password Input
+
+      let passwordInput = document.getElementById("password");
+      let passwordValid = false;
+      if(passwordInput.value.length > 7){
+        passwordValid = true;
+        document.getElementById("password_label").textContent = "Mot de passe"
+        document.getElementById("password_label").style.color = "black"
+      }
+      else{
+        document.getElementById("password_label").textContent = "8 caractères minimum"
+        document.getElementById("password_label").style.color = "red"
+      }
+
+      // File Input
+
+      let fileInput = document.getElementById("profil_image_input");
+      let fileValid = false;
+      if(fileInput.files[0]){
+        fileValid= true;
+        document.getElementById("profil_image_label").textContent = "Photo de profil"
+        document.getElementById("profil_image_label").style.color = "black"
+      }
+      else{
+        document.getElementById("profil_image_label").textContent = "Veuillez choisir une photo de profil"
+        document.getElementById("profil_image_label").style.color = "red"
+      }
+
+      if(firstNameValid == true && lastNameValid == true && emailValid == true && passwordValid == true && fileValid == true){
+
+        let formData = new FormData();
+        formData.append("nom", firstNameInput.value);
+        formData.append("prenom", lastNameInput.value);
+        formData.append("email", emailInput.value);
+        formData.append("passwordhash", passwordInput.value);
+        formData.append("role", "Membre");
+        formData.append("image", fileInput.files[0]);
+
+        fetch("http://localhost:3000/api/auth/signup", {
+              method: 'POST',
+              body: formData
+              })
+              .then(res => res.json())
+              .then((data) => {
+                if(data.error){
+                  console.error(data.error)
+                }
+                else{
+                  this.$router.push("/login")
+                }
+              })
+              .catch(err => console.log(err));
+      }
     },
 
     ChangeProfilImage(){

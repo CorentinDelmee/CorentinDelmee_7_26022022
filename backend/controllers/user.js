@@ -20,7 +20,7 @@ const User = require("../models/User");
 
 // Logique métier : User Inscription
 
-exports.signup = (req, res, next) => {
+exports.signup = (req, response, next) => {
   bcrypt.hash(req.body.passwordhash, 10)
     .then(hash => {
       let filename = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
@@ -30,9 +30,10 @@ exports.signup = (req, res, next) => {
         if(err) throw err;
       console.log(res);
       console.log("Utilisateur crée");
+      response.status(200).json({message: "Utilisateur crée"})
       }) 
     })
-    .catch(error => res.status(500).json({ error }));
+    .catch(error => response.status(500).json({ error : "Problème serveur"}));
 };
 
 // Logique métier : User Connexion

@@ -3,11 +3,11 @@
   <div class="form_Container">
     <form action="">
       <div class="form_settings label_display">
-          <label for="email" class="content_label">Email</label>            
+          <label for="email" class="content_label" id="email_label">Email</label>            
         <input type="text" name="email" id="email" class="input_settings">
       </div>
       <div class="form_settings label_display">
-        <label for="password" class="content_label">Mot de passe</label>            
+        <label for="password" class="content_label" id="password_label">Mot de passe</label>            
         <input type="password" name="password" id="password" class="input_settings">
         <svg @click="Hidepassword" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic mdp_hide" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3z"></path></svg>
       </div>                            
@@ -27,8 +27,36 @@ export default {
   name: 'LoginForm',
   methods: {
     SendLoginForm(){
-      
-      let user_login = {
+
+      //Email Input 
+
+      let emailInput = document.getElementById("email");
+      let emailValid = false;
+      if(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(emailInput.value) && emailInput.value.length < 255){
+        emailValid = true;
+        document.getElementById("email_label").textContent = "Email"
+        document.getElementById("email_label").style.color = "black"
+      }
+      else{
+        document.getElementById("email_label").textContent = "Insérer votre email"
+        document.getElementById("email_label").style.color = "red"
+      }
+
+      let passwordInput = document.getElementById("password");
+      let passwordValid = false;
+      if(passwordInput.value.length > 7){
+        passwordValid = true;
+        document.getElementById("password_label").textContent = "Mot de passe"
+        document.getElementById("password_label").style.color = "black"
+      }
+      else{
+        document.getElementById("password_label").textContent = "Insérer votre mot de passe"
+        document.getElementById("password_label").style.color = "red"
+      }
+
+
+      if(emailValid && passwordValid){
+        let user_login = {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value,
       }
@@ -45,16 +73,17 @@ export default {
             .then((data) => { 
 
               if(data.error){ 
-                console.log(new Error (data.error));
+                console.error(new Error (data.error));
               }
               else{
                 console.log(data);
                 localStorage.setItem("UserLogin", JSON.stringify(data)); 
                 console.log("Connexion")
-                window.location.href = "http://localhost:8080/#/home"
+                this.$router.push("/home")
               }
             })
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
+      }
     },
 
     Hidepassword(){
