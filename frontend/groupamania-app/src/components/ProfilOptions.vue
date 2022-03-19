@@ -67,7 +67,7 @@ export default {
                 console.log(User.nom)
                 localStorage.setItem("UserLogin", JSON.stringify(data))
         
-        fetch(`http://localhost:3000/api/auth/name/${User.id}`,{
+        fetch(`${this.$store.state.apiUrl}/auth/name/${User.id}`,{
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
@@ -103,7 +103,7 @@ export default {
                 console.log(User.prenom)
                 localStorage.setItem("UserLogin", JSON.stringify(data))
         
-        fetch(`http://localhost:3000/api/auth/surname/${User.id}`,{
+        fetch(`${this.$store.state.apiUrl}/auth/surname/${User.id}`,{
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
@@ -127,7 +127,7 @@ export default {
         
         localStorage.removeItem("UserLogin")
 
-        fetch(`http://localhost:3000/api/auth/${profil.id}`, {
+        fetch(`${this.$store.state.apiUrl}/auth/${profil.id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',

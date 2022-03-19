@@ -126,7 +126,7 @@ export default {
         formData.append("role", "Membre");
         formData.append("image", fileInput.files[0]);
 
-        fetch("http://localhost:3000/api/auth/signup", {
+        fetch(`${this.$store.state.apiUrl}/auth/signup`, {
               method: 'POST',
               body: formData
               })

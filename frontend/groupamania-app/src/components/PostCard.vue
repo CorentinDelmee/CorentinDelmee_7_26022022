@@ -124,7 +124,7 @@ export default {
         profil.user_id = user_id;
 
         if(profil.id === user_id || profil.role === "Admin"){
-            fetch(`http://localhost:3000/api/publications/${id}`, {
+            fetch(`${this.$store.state.apiUrl}/publications/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
@@ -176,7 +176,7 @@ export default {
                     formData.append("filename", filename)  
                 }
 
-                fetch(`http://localhost:3000/api/publications/${id}`,{
+                fetch(`${this.$store.state.apiUrl}/publications/${id}`,{
                     method: 'PUT',
                     headers: {
                         'Authorization': 'Bearer ' + profil.token

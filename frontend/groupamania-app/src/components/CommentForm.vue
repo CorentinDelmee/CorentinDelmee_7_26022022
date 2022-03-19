@@ -40,9 +40,7 @@ export default {
               user_image: profil.file,
         }
 
-
-
-        fetch("http://localhost:3000/api/comments", {
+        fetch(`${this.$store.state.apiUrl}/comments`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

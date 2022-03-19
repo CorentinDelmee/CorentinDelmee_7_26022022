@@ -41,7 +41,7 @@ export default {
         profil.user_id = user_id;
         
         if(user_id === profil.id || profil.role === "Admin"){
-          fetch(`http://localhost:3000/api/comments/${id}`, {
+          fetch(`${this.$store.state.apiUrl}/comments/${id}`, {
               method: 'DELETE',
               headers: {
                   'Accept': 'application/json',

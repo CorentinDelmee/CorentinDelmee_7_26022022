@@ -9,6 +9,10 @@ export default createStore({
     allComment : [],
 
     profil: [],
+
+    apiUrl: "http://localhost:3000/api",
+
+    frontUrl: "http://localhost:8080/#",
   },
 
 

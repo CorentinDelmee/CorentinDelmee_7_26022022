@@ -49,12 +49,8 @@ export default {
             formData.append("image", document.getElementById("file_input").files[0]);
             formData.append("user_image", profil.file);
 
-            for (var value of formData.values()) {
-                console.log(value);
-            }
-
         
-            fetch("http://localhost:3000/api/publications", {
+            fetch(`${this.$store.state.apiUrl}/publications`, {
             method: 'POST',
             headers: {
                 'Authorization': 'Bearer ' + profil.token,

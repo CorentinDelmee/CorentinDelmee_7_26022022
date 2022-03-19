@@ -61,7 +61,7 @@ export default {
         password: document.getElementById("password").value,
       }
 
-      fetch("http://localhost:3000/api/auth/login", {
+      fetch(`${this.$store.state.apiUrl}/auth/login`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
