@@ -3,9 +3,9 @@
 
         <div v-if="isModifyingNom === false" class="nom_option" id="nom_div">
             <p id="nom_paraf">{{profil.nom}}</p>
-            <svg @click="ModifyNom" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic modify_icon" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M19.14 12.94c.04-.3.06-.61.06-.94c0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6s3.6 1.62 3.6 3.6s-1.62 3.6-3.6 3.6z"></path></svg>
+            <img @click="ModifyNom" class="modify_icon" src="../assets/svg/options_icon.svg" alt="">
         </div>
-        <div v-if="isModifyingNom === true" class="nom_option" id="nom_div">
+        <div v-if="isModifyingNom === true" class="nom_option" id="nom_div_modifying">
             <textarea v-model="profil.nom" name="" id="textareaNom" class="activeTextarea" placeholder="Rentrez votre nom"></textarea>
             <button @click="sendNewNom">Modifier</button>
         </div>
@@ -13,9 +13,9 @@
 
         <div v-if="isModifyingPrenom === false" class="nom_option" id="prenom_div">
             <p id="prenom_paraf">{{profil.prenom}}</p>
-            <svg @click="ModifyPrenom" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic modify_icon" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M19.14 12.94c.04-.3.06-.61.06-.94c0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6s3.6 1.62 3.6 3.6s-1.62 3.6-3.6 3.6z"></path></svg>
+            <img @click="ModifyPrenom" class="modify_icon" src="../assets/svg/options_icon.svg" alt="">
         </div>
-        <div v-if="isModifyingPrenom === true" class="nom_option" id="prenom_div">
+        <div v-if="isModifyingPrenom === true" class="nom_option" id="prenom_div_modifying">
             <textarea v-model="profil.prenom" name="" id="textareaPrenom" class="activeTextarea" placeholder="Rentrez votre prenom"></textarea>
             <button @click="sendNewPrenom">Modifier</button>
         </div>
@@ -78,7 +78,7 @@ export default {
                     })
                     .then(res => res.json())
                     .then(location.reload())
-                    .catch(err => console.log(err));
+                    .catch(err => console.error(err));
 
       },
 
@@ -114,7 +114,7 @@ export default {
                     })
                     .then(res => res.json())
                     .then(location.reload())
-                    .catch(err => console.log(err));
+                    .catch(err => console.error(err));
 
       },
 
@@ -138,7 +138,7 @@ export default {
         })
         .then(res => res.json())
         .then(this.$router.push("/"))
-        .catch(err => console.log(err));
+        .catch(err => console.error(err));
       }
 
   },

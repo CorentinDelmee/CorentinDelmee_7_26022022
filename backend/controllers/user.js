@@ -26,7 +26,7 @@ exports.signup = (req, response, next) => {
       let filename = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
       let user = new User(req.body.nom, req.body.prenom, req.body.email, hash, req.body.role, filename);
       let sql = "INSERT INTO utilisateur SET ?"
-      let query = connexion.query(sql, user, (err, res) => {
+      connexion.query(sql, user, (err, res) => {
         if(err) throw err;
       console.log(res);
       console.log("Utilisateur crée");
@@ -41,7 +41,7 @@ exports.signup = (req, response, next) => {
 exports.login = (req,response, next) => {
   let user_email = req.body.email;
   let sql = "SELECT * FROM utilisateur WHERE email = ?"; /*passwordhash*/
-  let query = connexion.query(sql, user_email, (err, res) => {
+  connexion.query(sql, user_email, (err, res) => {
     result = (JSON.parse(JSON.stringify(res)))
 
     const isEmpty = Object.keys(res).length === 0;
@@ -75,19 +75,19 @@ exports.login = (req,response, next) => {
 exports.modifyName = (req,res, next) => {
 
   let sql = `UPDATE utilisateur SET nom = "${req.body.nom}" WHERE id = ${req.params.id}`;
-  let query = connexion.query(sql, (err, res) => {
+  connexion.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res);
   })
 
   let sql2 = `UPDATE postes SET nom = "${req.body.nom}" WHERE user_id = ${req.params.id}`;
-  let query2 = connexion.query(sql2, (err, res) => {
+  connexion.query(sql2, (err, res) => {
     if(err) throw err;
     console.log(res)
   })
 
   let sql3 = `UPDATE comment SET nom = "${req.body.nom}" WHERE user_id = ${req.params.id}`;
-  let query3 = connexion.query(sql3, (err, res) => {
+  connexion.query(sql3, (err, res) => {
     if(err) throw err;
     console.log(res)
   })
@@ -97,19 +97,19 @@ exports.modifyName = (req,res, next) => {
 exports.modifySurname = (req,res, next) => {
 
   let sql = `UPDATE utilisateur SET prenom = "${req.body.prenom}" WHERE id = ${req.params.id}`;
-  let query = connexion.query(sql, (err, res) => {
+  connexion.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res);
   })
 
   let sql2 = `UPDATE postes SET prenom = "${req.body.prenom}" WHERE user_id = ${req.params.id}`;
-  let query2 = connexion.query(sql2, (err, res) => {
+  connexion.query(sql2, (err, res) => {
     if(err) throw err;
     console.log(res)
   })
 
   let sql3 = `UPDATE comment SET prenom = "${req.body.prenom}" WHERE user_id = ${req.params.id}`;
-  let query3 = connexion.query(sql3, (err, res) => {
+  connexion.query(sql3, (err, res) => {
     if(err) throw err;
     console.log(res)
   })
@@ -118,44 +118,17 @@ exports.modifySurname = (req,res, next) => {
 
 exports.deleteUser = (req, res, next) => {
   let sql = `DELETE FROM utilisateur WHERE id = ${req.params.id}`;
-  query = connexion.query(sql, (err, res) => {
+  connexion.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res)
     const filename = req.body.file.split('http://localhost:3000/images/')[1];
     fs.unlink(`images/${filename}`, (err) => {
       console.log(`images/${filename}`);
       if(err) throw err;
-      console.log("file unlinked")
+      console.log("Fichier délié")
     })
   })
 }
 
 
 
-
-/*
-exports.login = (req, res, next) => {
-  User.findOne({ email: req.body.email })
-    .then(user => {
-      if (!user) {
-        return res.status(401).json({ error: 'Utilisateur non trouvé !' });
-      }
-      bcrypt.compare(req.body.password, user.password)
-        .then(valid => {
-          if (!valid) {
-            return res.status(401).json({ error: 'Mot de passe incorrect !' });
-          }
-          res.status(200).json({
-            userId: user._id,
-            token: jwt.sign(
-              { userId: user._id },
-              '0tzC7I9v1uDBdKUHrilvGCZ69u8bvrO2h5xw939eA0wBP9l7Sh4MJT498IbxBKT7PYg0GubbKFoXLdK5Zb37p69CB9xcF5AiTLNFhOBoK9PW9I0ubWyqDz9YdTrX4m8jGkBam7gv93wO1wevYx3l6Eyyc9dU6pr4hje7WFyoxmmoM2pzaqI9WKvkYaDbaD8JP9rmadmm',
-              { expiresIn: '24h' }
-            )
-          });
-        })
-        .catch(error => res.status(500).json({ error }));
-    })
-    .catch(error => res.status(500).json({ error }));
-};
-*/

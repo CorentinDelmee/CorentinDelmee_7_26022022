@@ -31,7 +31,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import MainNavigation from '../components/MainNavigation.vue'
 import PostCard from '../components/PostCard.vue'
 import InfoGroupomania from '../components/InfoGroupomania.vue'

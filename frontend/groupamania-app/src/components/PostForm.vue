@@ -68,7 +68,7 @@ export default {
                 console.log(this.$store.state.allMessage);
                 document.getElementById("post_content").value = ""
             })
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
         },
 
 

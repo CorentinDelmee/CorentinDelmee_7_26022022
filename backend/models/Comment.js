@@ -1,5 +1,5 @@
 
-// Création d'une classe post
+// Création d'une classe comment
 
 class comment {
     nom = {
@@ -40,6 +40,6 @@ class comment {
     }
 }
 
-// Export de la classe publication pour app.js
+// Export de la classe comment pour app.js
 
 module.exports = comment

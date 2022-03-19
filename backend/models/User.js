@@ -1,4 +1,4 @@
-// Création d'une classe poste
+// Création d'une classe user
 
 class user {
     nom = {

@@ -14,7 +14,7 @@
                 </div>
                 <div class="button_container">
                     <router-link to = "/login">
-                        <button class="button_settings login_button">Se connecter</button>                    
+                        <button class="button_settings login_button">Se connecter !</button>                    
                     </router-link>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     <SignInForm/>
                     <div class="responsive_connexion_button">
                         <router-link to = "/login">
-                            <button class="button_settings login_button">Se connecter</button>                    
+                            <button class="button_settings login_button">Se connecter !</button>                    
                         </router-link>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
 <script>
 
 if(localStorage.getItem("UserLogin")){
-    this.$router.push("/home");
+    window.location.href = "http://localhost:8080/#/home";
 }
 
 import SignInForm from '../components/SignInForm.vue'

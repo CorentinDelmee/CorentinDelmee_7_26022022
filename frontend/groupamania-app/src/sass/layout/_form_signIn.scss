@@ -83,8 +83,10 @@
     }
 
     .mdp_hide{
-        padding-left: 20px;
-        width: 100%;
+        position: absolute;
+        top: 16px;
+        right: 0px;
+        width: 30px;
 
         &:hover{
             transform: scale(1.05);

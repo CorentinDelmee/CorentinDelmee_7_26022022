@@ -29,7 +29,7 @@ const userRoutes = require('./routes/user');
 
 const publicationRoutes = require("./routes/publication");
 
-// Appel du router publication
+// Appel du router comment
 
 const commentRoutes = require("./routes/comment");
 

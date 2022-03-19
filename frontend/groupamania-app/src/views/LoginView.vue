@@ -6,7 +6,7 @@
                         <h1>Connectez vous</h1>
                     </div>
                     <div class="paraf_container">
-                        <p class="login_paraf">Entrez vos identifiants pour vous connecter à votre compte</p>
+                        <p class="login_paraf">Entrez vos identifiants pour vous connecter à votre compte !</p>
                     </div>
                     <div class="logo">
                         <img src="../assets/icon-left-font-monochrome-black.png" alt="" class="icon_logo">
@@ -15,7 +15,7 @@
                     <LoginForm/>
                     <div class="signIn_button_div">
                         <router-link to="/">
-                            <button class="button_settings signIn_button">Inscrivez vous</button>
+                            <button class="button_settings signIn_button">Inscrivez vous !</button>
                         </router-link>
                     </div>
 
@@ -26,7 +26,7 @@
                     <h2 class="Welcome">Bienvenue chez <span class="Groupomania">Groupomania</span></h2>                    
                     <div class="button_container">
                         <router-link to="/">
-                            <button class="button_settings signIn_button">Inscrivez vous</button>
+                            <button class="button_settings signIn_button">Inscrivez vous !</button>
                         </router-link>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
 <script>
 
 if(localStorage.getItem("UserLogin")){
-    this.$router.push('home');
+    window.location.href = "http://localhost:8080/#/home";
 }
 
 import LoginForm from '../components/LoginForm.vue'

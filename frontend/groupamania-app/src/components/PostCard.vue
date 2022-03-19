@@ -35,7 +35,7 @@
                         </label>
                     </div>
                     <div class="modify_post_div">
-                        <svg @click="goBack" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17.51 3.87L15.73 2.1L5.84 12l9.9 9.9l1.77-1.77L9.38 12l8.13-8.13z"></path></svg>
+                        <img @click="goBack" src="../assets/svg/go_back_icon.svg" alt="">
                         <button @click="sendModifyPost(id, user_id, file)" class="button">Modifier</button>
                     </div>          
 
@@ -46,12 +46,12 @@
             <div class="icon_div">
                 <div class="coeur_div">
                     <p>15</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ph coeur_icon" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M128 220.2a13.6 13.6 0 0 1-9.9-4.1L35 133a58 58 0 0 1 2.2-84.2a56.5 56.5 0 0 1 41.6-14a62.8 62.8 0 0 1 40.3 18.3L128 62l11-11a57.9 57.9 0 0 1 84.1 2.2a56.2 56.2 0 0 1 14.1 41.6a62.8 62.8 0 0 1-18.3 40.3l-81 81a13.6 13.6 0 0 1-9.9 4.1Zm5.6-8.3ZM75 46.7a44 44 0 0 0-29.7 11.1a45.8 45.8 0 0 0-1.8 66.7l83.1 83.1a1.9 1.9 0 0 0 2.8 0l81-81c18.2-18.2 19.9-47.5 3.8-65.3a45.8 45.8 0 0 0-66.7-1.8l-15.3 15.2a6.1 6.1 0 0 1-8.5 0l-13.1-13.1A50.3 50.3 0 0 0 75 46.7Z"></path></svg>
+                    <img class="coeur_icon" src="../assets/svg/love_icon.svg" alt="">
                 </div>
                 <div class="function_icon_div">
-                    <svg @click="CommentForm(id)" v-if="isModifying === false" :id="id + `commentIcon`" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi message_icon" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M18 8H6V6h12v2m0 3H6V9h12v2m0 3H6v-2h12v2m4-10a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14l4 4V4Z"></path></svg>                    
-                    <svg @click="ModifyPostInterface(file)" v-if="user_id === profil.id || profil.role === 'Admin'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi modify_icon" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
-                    <svg @click="DeletePost(id, file, user_id)" v-if="user_id === profil.id || profil.role === 'Admin'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--majesticons delete_icon" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path fill="currentColor" d="M9 7h9v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7h3z"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7h-2M4 7h2m0 0h12M6 7v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7m-9-.5v0A2.5 2.5 0 0 1 11.5 4h1A2.5 2.5 0 0 1 15 6.5v0"></path></g></svg>
+                    <img @click="CommentForm(id)" v-if="isModifying === false" :id="id + `commentIcon`" class="message_icon" src="../assets/svg/comment_icon.svg" alt="">
+                    <img @click="ModifyPostInterface(file)" v-if="user_id === profil.id || profil.role === 'Admin'" class="modify_icon" src="../assets/svg/modify_icon.svg" alt="">
+                    <img @click="DeletePost(id, file, user_id)" v-if="user_id === profil.id || profil.role === 'Admin'" class="delete_icon" src="../assets/svg/delete_icon_post.svg" alt="">
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@ export default {
             let elementIndex = messageArray.findIndex((obj => obj.id == data));
             this.$store.commit('deletePublication' , elementIndex)
         })
-        .catch(err => console.log(err));
+        .catch(err => console.error(err));
         }
     },
 
@@ -198,7 +198,7 @@ export default {
 
                     })
                     .then(this.isModifying = false)
-                    .catch(err => console.log(err));
+                    .catch(err => console.error(err));
         }
       },
       
@@ -232,8 +232,6 @@ export default {
     this.fetchAllComment();
   }
 }
-
-// fonction chercher dans un array console.log(array.filter(x => x.user_id === 1));
 
 </script>
 

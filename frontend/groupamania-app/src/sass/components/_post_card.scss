@@ -90,7 +90,7 @@
                         color: white;
                         background-color: $color_tertiary;
                     }
-                    svg{
+                    img{
                         width: 25px;
                         &:hover{
                             background-color: $color_tertiary;
@@ -119,20 +119,21 @@
                 @media(max-width: 576px){
                     margin-left: 75px;
                 }
-                svg{
-                    padding: 0px 0px 0 3px;
+                img{
+                    width: 20px;
+                    padding: 0 0 0 3px;
                 }
             }
 
             .function_icon_div{
                 display: flex;
                 align-items: center;
-                svg{
+                img{
                     padding: 0 0 0 10px;
                 }
             }
 
-            svg{
+            img{
                 width: 20px;
 
                 &:hover{
