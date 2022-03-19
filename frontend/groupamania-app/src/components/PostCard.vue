@@ -24,8 +24,8 @@
                 <div v-if="isModifying === true" class="content_div" :id="id + `content_div`">
 
                     <h2>{{prenom + " " + nom}}</h2>
-                    <p class="parafTextarea">
-                        <textarea name="" :id="id + `textarea`" class="activeTextarea" :value="content"></textarea>
+                    <p class="paraf_textarea">
+                        <textarea name="" :id="id + `textarea`" class="active_textarea" :value="content"></textarea>
                     </p>
                     <input @change="ChangeImageDisplay" type="file" id="file_modify" hidden>
                     <div>
@@ -34,7 +34,7 @@
                             <figcaption>{{filename}}</figcaption>
                         </label>
                     </div>
-                    <div class="ModifyPost_div">
+                    <div class="modify_post_div">
                         <svg @click="goBack" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17.51 3.87L15.73 2.1L5.84 12l9.9 9.9l1.77-1.77L9.38 12l8.13-8.13z"></path></svg>
                         <button @click="sendModifyPost(id, user_id, file)" class="button">Modifier</button>
                     </div>          

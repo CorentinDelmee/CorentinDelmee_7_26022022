@@ -78,7 +78,7 @@
                     margin: 10px 0 10px 0;
                 }
 
-                .ModifyPost_div{
+                .modify_post_div{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -154,13 +154,13 @@
     }
 }
 
-.parafTextarea{
+.paraf_textarea{
     width: 90%;
     min-height: 100px;
     margin: 0;
 }
 
-.activeTextarea{
+.active_textarea{
     display: block;
     width: 100%;
     min-height: 100px;

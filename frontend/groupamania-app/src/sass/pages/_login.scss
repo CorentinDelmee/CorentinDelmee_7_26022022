@@ -1,4 +1,4 @@
-.main_Container{
+.main_container{
     display: flex;
     height: 100%;
 
@@ -12,7 +12,7 @@
         }
     }
 
-    .side_Text{
+    .side_text{
         height: 100%;
         width: 60%;
         background-color: $special_color;
@@ -21,7 +21,7 @@
             width: 100%;
         }
 
-        .h1_Container{
+        .h1_container{
             text-align: center;
             margin-top: 200px;
             h1{
@@ -32,7 +32,7 @@
             }
         }
 
-        .form_Container{
+        .form_container{
             height: 15%;
             margin-top: 80px;
             input{
@@ -47,7 +47,7 @@
             }
         }
 
-        .button_Container{
+        .button_container{
             text-align: center;
             padding-top: 80px;
             background-color: $special_color;
@@ -67,7 +67,7 @@
             }
         }
 
-        .paraf_Container{
+        .paraf_container{
             width: 50%;
             margin: auto;
             .login_paraf{
@@ -97,7 +97,7 @@
     }
 
 
-    .main_Text{
+    .main_text{
         display: flex;
         justify-content: center;
 
@@ -109,7 +109,7 @@
             display: none;
         }
 
-        .section_Container{
+        .section_container{
             text-align: center;
             margin-top: 350px;
 
@@ -127,7 +127,7 @@
                 }
             }
 
-            .button_Container{
+            .button_container{
                 margin-top: 50px;
                 .signIn_button{
                     background-color: white;

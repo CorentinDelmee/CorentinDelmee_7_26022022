@@ -1,11 +1,11 @@
 <template>
     <body>
-        <div class="main_Container">
-            <div class="side_Text">
-                    <div class="h1_Container">
+        <div class="main_container">
+            <div class="side_text">
+                    <div class="h1_container">
                         <h1>Connectez vous</h1>
                     </div>
-                    <div class="paraf_Container">
+                    <div class="paraf_container">
                         <p class="login_paraf">Entrez vos identifiants pour vous connecter à votre compte</p>
                     </div>
                     <div class="logo">
@@ -20,11 +20,11 @@
                     </div>
 
             </div>
-            <div class="main_Text">
-                <div class="section_Container">
+            <div class="main_text">
+                <div class="section_container">
                     <h2>S'inscrire</h2>
                     <h2 class="Welcome">Bienvenue chez <span class="Groupomania">Groupomania</span></h2>                    
-                    <div class="button_Container">
+                    <div class="button_container">
                         <router-link to="/">
                             <button class="button_settings signIn_button">Inscrivez vous</button>
                         </router-link>

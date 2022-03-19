@@ -1,13 +1,13 @@
 <template>
 <div>
-    <div class="form_Container">
+    <div class="form_container">
       <form action="">
           <input @change="ChangeProfilImage" type="file" id="profil_image_input" hidden>
           <label for="profil_image_input" class="image_input">
             <p id="profil_image_label">Photo de profil</p>
             <img :src="profilImage" alt="">
           </label>
-        <div class="identity_Container">
+        <div class="identity_container">
           <div class="identity_form_settings label_display">
               <label for="nom" class="content_label" id="nom_label">Nom</label>
               <input type="firstname" name="nom" id="nom" class="input_settings" >
@@ -28,7 +28,7 @@
         </div>
       </form>
     </div>
-    <div class="button_Container">
+    <div class="button_container">
         <button @click="SendSignInForm" class="button_settings signIn_button">S'inscrire</button>
     </div>
 </div>

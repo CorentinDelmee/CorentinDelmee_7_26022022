@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="form_Container">
+  <div class="form_container">
     <form action="">
       <div class="form_settings label_display">
           <label for="email" class="content_label" id="email_label">Email</label>            
@@ -15,7 +15,7 @@
   </div>
 
 
-  <div class="button_Container">
+  <div class="button_container">
     <button @click="SendLoginForm" class="button_settings login_button">Se connecter</button>
   </div>
 </div>

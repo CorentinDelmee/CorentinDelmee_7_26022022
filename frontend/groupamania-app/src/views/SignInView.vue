@@ -1,25 +1,25 @@
 <template>
     <body>
-        <div class="main_Container">
-            <div class="side_Text">
-                <div class="h2_Container">
+        <div class="main_container">
+            <div class="side_text">
+                <div class="h2_container">
                     <h2>Déja inscrit ?</h2>
                     <h2 class="Welcome">Bienvenue chez <span class="Groupomania">Groupomania</span></h2>
                 </div>
-                <div class="paraf_Container">
+                <div class="paraf_container">
                     <p class="login_paraf">Entrez vos identifiants pour vous connecter à votre compte</p>
                 </div>
                 <div class="logo">
                     <img src="../assets/icon-left-font-monochrome-white.png" alt="" class="icon_logo">
                 </div>
-                <div class="button_Container">
+                <div class="button_container">
                     <router-link to = "/login">
                         <button class="button_settings login_button">Se connecter</button>                    
                     </router-link>
                 </div>
             </div>
-            <div class="main_Text">
-                <div class="section_Container">
+            <div class="main_text">
+                <div class="section_container">
                     <h1>Créer votre compte</h1>
                     <SignInForm/>
                     <div class="responsive_connexion_button">
