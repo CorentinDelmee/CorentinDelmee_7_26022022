@@ -16,7 +16,7 @@ exports.createComment = (req, response, next) => {
     console.log(res);
     console.log("Commentaire crée");
 
-    let sql2 = `SELECT MAX(id) FROM comment WHERE nom = "${req.body.nom}" AND prenom = "${req.body.prenom}" AND content = "${req.body.content}" AND user_id = "${req.body.user_id}"`;
+    let sql2 = `SELECT MAX(id) FROM comment WHERE content = "${req.body.content}" AND user_id = "${req.body.user_id}"`;
     let query2 = connexion.query(sql2, (err, res) => {
       if(err) throw err;
       data = JSON.parse(JSON.stringify(res))[0];

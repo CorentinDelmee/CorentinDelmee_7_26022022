@@ -81,6 +81,18 @@
         background-color: #ededed;
         border: none;
     }
+
+    .mdp_hide{
+        padding-left: 20px;
+        width: 100%;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+        &:active{
+            color: $color_tertiary;
+        }
+    }
 }
 
 
